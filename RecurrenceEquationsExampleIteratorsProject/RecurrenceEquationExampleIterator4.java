@@ -1,14 +1,16 @@
 package RecurrenceEquationsExampleIteratorsProject;
+
 import java.util.Iterator;
 
 /**
  * Class that represents the iterator of the next recurrence equation
- * Xn=sqrt(n)
+ * Xn=1+2X(n/2) X0=1
  * @author David Cortés and Julio Poveda
  */
-public class RecurrenceEquationExampleIterator2 implements Iterator
+public class RecurrenceEquationExampleIterator4 implements Iterator
 {
-	double n = 1;
+	
+	double n = 0;
 	
 	@Override
 	public boolean hasNext() 
@@ -19,8 +21,17 @@ public class RecurrenceEquationExampleIterator2 implements Iterator
 	@Override
 	public Object next() 
 	{
-		double answer = Math.sqrt(n);
-		n++;
-		return answer;
+		if(n == 0)
+		{
+			n++;
+			return 1;
+		}
+		else
+		{
+			double answer = Math.log(n);
+			n++;
+			return answer;
+		}
+		
 	}
 }

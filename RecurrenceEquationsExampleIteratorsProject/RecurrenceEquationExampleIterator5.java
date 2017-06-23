@@ -1,14 +1,15 @@
 package RecurrenceEquationsExampleIteratorsProject;
+
 import java.util.Iterator;
 
 /**
- * Class that represents the iterator of the next recurrence equation
- * Xn=sqrt(n)
+ * Class that represents the iterator of prime numbers
  * @author David Cortés and Julio Poveda
  */
-public class RecurrenceEquationExampleIterator2 implements Iterator
+public class RecurrenceEquationExampleIterator5 implements Iterator
 {
-	double n = 1;
+	
+	int n = 1;
 	
 	@Override
 	public boolean hasNext() 
@@ -19,8 +20,15 @@ public class RecurrenceEquationExampleIterator2 implements Iterator
 	@Override
 	public Object next() 
 	{
-		double answer = Math.sqrt(n);
+		Object answer = n;
+		
+		if((int)answer % 2 == 0)
+		{
+			answer = "";
+		}
+		
 		n++;
+		
 		return answer;
 	}
 }
