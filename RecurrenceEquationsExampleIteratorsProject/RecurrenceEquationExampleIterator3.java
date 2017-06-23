@@ -21,12 +21,19 @@ public class RecurrenceEquationExampleIterator3 implements Iterator
 	@Override
 	public Object next() 
 	{
+		//answer is fibonacci(xn) because the recurrence equation is Fibonacci´s sequence
 		int answer = fibonacci(xn);
 		xn++;
 
 		return answer;
 	}
 	
+	/**
+	 * Calculates the Fibonacci number of a position in the sequence
+	 * @param pNumber Position in the Fibonacci sequence
+	 * @return 0 or 1 if pNumber is equal to 0 or 1 (base cases) 
+	 * or Fibbonacci number according to the position
+	 */
 	public int fibonacci(int pNumber)
 	{
 		if(pNumber == 0)

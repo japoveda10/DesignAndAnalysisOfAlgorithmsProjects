@@ -20,7 +20,7 @@ public class RecurrenceEquationExampleIterator1 implements Iterator
 	@Override
 	public Object next() 
 	{
-		Object answer=x;
+		Object answer = x;
 		x = 2*x;
 		return answer;
 	}

@@ -28,6 +28,7 @@ public class RecurrenceEquationExampleIterator4 implements Iterator
 		}
 		else
 		{
+			//answer is log(n) because the recurrence equation is the complexity of binary search
 			double answer = Math.log(n);
 			n++;
 			return answer;

@@ -41,8 +41,8 @@ public class Main
 		//Iterator it = new RecurrenceEquationExampleIterator1();
 		//Iterator it = new RecurrenceEquationExampleIterator2();		
 		//Iterator it = new RecurrenceEquationExampleIterator3();
-		Iterator it = new RecurrenceEquationExampleIterator4();
-		//Iterator it = new RecurrenceEquationExampleIterator5();
+		//Iterator it = new RecurrenceEquationExampleIterator4();
+		Iterator it = new RecurrenceEquationExampleIterator5();
 
 		
 		int n = 5;
