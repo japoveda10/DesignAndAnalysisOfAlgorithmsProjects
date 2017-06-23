@@ -15,7 +15,7 @@ import RecurrenceEquationsExampleIteratorsProject.SquareNumbersIterator;
 public class Main 
 {
 	
-	public static void main(String [] args)
+	public static void main(String [] args) throws Exception
 	{
 		
 		//----------------------------------------------------------
@@ -42,11 +42,16 @@ public class Main
 		//Iterator it = new RecurrenceEquationExampleIterator2();		
 		//Iterator it = new RecurrenceEquationExampleIterator3();
 		//Iterator it = new RecurrenceEquationExampleIterator4();
-		Iterator it = new RecurrenceEquationExampleIterator5();
-
+		//Iterator it = new RecurrenceEquationExampleIterator5();
 		
-		int n = 5;
-				
+		//arg[0] has iterator name
+		String iteratorClassName = args[0];
+		Iterator it =
+				(Iterator)Class.forName(iteratorClassName).newInstance();
+		
+		//args[1] has number of elements to iterate
+		int n = Integer.parseInt(args[1]);
+		
 		for(int i = 0; i<n && it.hasNext() ; i++)
 		{
 			Object o = it.next();
