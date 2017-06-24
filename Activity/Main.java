@@ -60,7 +60,7 @@ public class Main
 		}
 		
 		//Creation of the matrix iterator
-		MatrixIterator it2 = new MatrixIterator(matrix);
+		MatrixIterator1 it2 = new MatrixIterator1(matrix);
 		
 		for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
 		{

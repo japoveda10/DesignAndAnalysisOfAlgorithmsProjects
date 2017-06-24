@@ -2,16 +2,17 @@ import java.util.Iterator;
 
 /**
  * Class that represents an objects matrix iterator
+ * Goes through each element of the matrix by rows
  * @author David Cortés and Julio Poveda
  */
-public class MatrixIterator implements Iterator
+public class MatrixIterator1 implements Iterator
 {
 	
 	Object[][] matrix;
 	int i;
 	int j;
 	
-	public MatrixIterator(Object[][] pObjectsMatrix)
+	public MatrixIterator1(Object[][] pObjectsMatrix)
 	{
 		matrix = pObjectsMatrix;
 		i = 0;
@@ -21,7 +22,7 @@ public class MatrixIterator implements Iterator
 	@Override
 	public boolean hasNext() 
 	{
-		return i>=0;
+		return j>=0;
 	}
 
 	@Override
@@ -29,18 +30,18 @@ public class MatrixIterator implements Iterator
 	{
 		Object object = null;
 		
-		if(i < matrix.length)
+		if(j < matrix[0].length)
 		{
 			System.out.println("index i = " + i);
 			System.out.println("index j = " + j);
 			object = matrix[i][j];
-			i += 1;			
+			j += 1;			
 		}
-		else if(i == matrix.length)
+		else if(j == matrix.length)
 		{
 			System.out.println("else if");
-			i = 0;
-			j += 1;
+			j = 0;
+			i += 1;
 			object = matrix[i][j];			
 		}
 		
