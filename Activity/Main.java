@@ -24,6 +24,10 @@ public class Main
 		System.out.println("Activity");
 		System.out.println("--------------------------------------");
 		
+		System.out.println("");
+		System.out.println("Parte 1");
+		System.out.println("");
+		
 		Algorithm algorithm = new Algorithm();
 	
 		RecurrenceEquationExampleIterator5 it = new RecurrenceEquationExampleIterator5();
@@ -38,6 +42,32 @@ public class Main
 		
 		System.out.println("");
 		System.out.println("El objeto que cumple el predicado es " + ob.toString());
+		
+		System.out.println("");
+		System.out.println("Parte 2");
+		System.out.println("");
+		
+		//A 4x4 matrix of objects is created
+		Object[][] matrix = new Object [4][4];
+		
+		//Objects are put in the matrix
+		for(int i = 0; i<matrix.length; i++)
+		{
+			for(int j=0; j<matrix[0].length; j++)
+			{
+				matrix[i][j] = i;
+			}
+		}
+		
+		//Creation of the matrix iterator
+		MatrixIterator it2 = new MatrixIterator(matrix);
+		
+		for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
+		{
+			Object o = it2.next();
+			System.out.println(o.toString());
+		}
+		
 	}
 
 }
