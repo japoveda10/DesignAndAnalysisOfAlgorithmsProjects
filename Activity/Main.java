@@ -1,11 +1,9 @@
 import java.util.Iterator;
 
-import RecurrenceEquationsExampleIteratorsProject.RecurrenceEquationExampleIterator1;
-import RecurrenceEquationsExampleIteratorsProject.RecurrenceEquationExampleIterator2;
-import RecurrenceEquationsExampleIteratorsProject.RecurrenceEquationExampleIterator3;
-import RecurrenceEquationsExampleIteratorsProject.RecurrenceEquationExampleIterator4;
 import RecurrenceEquationsExampleIteratorsProject.RecurrenceEquationExampleIterator5;
-import RecurrenceEquationsExampleIteratorsProject.SquareNumbersIterator;
+import Matrix.MatrixIterator1;
+import Matrix.MatrixIterator2;
+
 
 /**
  * Activity of the course Design and Analysis of Algorithms
@@ -25,7 +23,7 @@ public class Main
 		System.out.println("--------------------------------------");
 		
 		System.out.println("");
-		System.out.println("Parte 1");
+		System.out.println("Part 1");
 		System.out.println("");
 		
 		Algorithm algorithm = new Algorithm();
@@ -41,10 +39,10 @@ public class Main
 		}
 		
 		System.out.println("");
-		System.out.println("El objeto que cumple el predicado es " + ob.toString());
+		System.out.println("The object that fulfills the predicate is " + ob.toString());
 		
 		System.out.println("");
-		System.out.println("Parte 2");
+		System.out.println("Part 2");
 		System.out.println("");
 		
 		//A 4x4 matrix of objects is created
@@ -58,16 +56,41 @@ public class Main
 				matrix[i][j] = i;
 			}
 		}
+				
+		//args[0] has iterator name
+		String iteratorClassName = args[0];
 		
-		//Creation of the matrix iterator
-		MatrixIterator1 it2 = new MatrixIterator1(matrix);
+		Iterator it2;
 		
-		for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
+		if(iteratorClassName.equals("Matrix.MatrixIterator1"))
 		{
-			Object o = it2.next();
-			System.out.println(o.toString());
+			//Iterator is MatrixIterator1
+			it2 = new MatrixIterator1(matrix);
+			
+			
+			for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
+			{
+				Object o = it2.next();
+				System.out.println(o.toString());
+			}
 		}
-		
+		else if(iteratorClassName.equals("Matrix.MatrixIterator2"))
+		{
+			//Iterator is MatrixIterator2
+			it2 = new MatrixIterator2(matrix);
+			
+			for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
+			{
+				Object o = it2.next();
+				System.out.println(o.toString());
+			}
+		}
+				
+		//Visit the elements of the matrix in the main diagonal
+		for(int i = 0; i<matrix[0].length && i<matrix.length;i++)
+		{
+			System.out.println(matrix[i][i]);
+		}
 	}
 
 }
