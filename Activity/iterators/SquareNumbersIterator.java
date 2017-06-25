@@ -1,10 +1,11 @@
-package RecurrenceEquationsExampleIteratorsProject;
+package iterators;
+
+
 import java.util.Iterator;
 
 /**
- * Class that represents a squere numbers interator
+ * Class that represents a square numbers interator
  * @author David Cortés and Julio Poveda
- *
  */
 public class SquareNumbersIterator implements Iterator
 {

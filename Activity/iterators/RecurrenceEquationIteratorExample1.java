@@ -1,4 +1,6 @@
-package RecurrenceEquationsExampleIteratorsProject;
+package iterators;
+
+
 import java.util.Iterator;
 
 /**
@@ -6,9 +8,8 @@ import java.util.Iterator;
  * Xn=2X(n-1), X0 = 1
  * @author David Cortés and Julio Poveda
  */
-public class RecurrenceEquationExampleIterator1 implements Iterator
+public class RecurrenceEquationIteratorExample1 implements Iterator
 {
-	
 	int x = 1;
 
 	@Override

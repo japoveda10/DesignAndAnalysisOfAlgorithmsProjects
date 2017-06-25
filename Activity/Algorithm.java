@@ -5,7 +5,6 @@
  */
 public class Algorithm implements Predicate
 {
-
 	@Override
 	public boolean truePredicate(Object pObject) 
 	{
@@ -16,6 +15,4 @@ public class Algorithm implements Predicate
 		
 		return false;
 	}
-	
-
 }

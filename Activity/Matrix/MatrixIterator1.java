@@ -1,4 +1,4 @@
-package Matrix;
+package matrix;
 
 import java.util.Iterator;
 
@@ -9,7 +9,6 @@ import java.util.Iterator;
  */
 public class MatrixIterator1 implements Iterator
 {
-	
 	Object[][] matrix;
 	int i;
 	int j;

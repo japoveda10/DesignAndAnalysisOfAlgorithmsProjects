@@ -1,4 +1,6 @@
-package RecurrenceEquationsExampleIteratorsProject;
+package iterators;
+
+
 import java.util.Iterator;
 
 /**
@@ -6,7 +8,7 @@ import java.util.Iterator;
  * Xn=sqrt(n)
  * @author David Cortés and Julio Poveda
  */
-public class RecurrenceEquationExampleIterator2 implements Iterator
+public class RecurrenceEquationIteratorExample2 implements Iterator
 {
 	double n = 1;
 	

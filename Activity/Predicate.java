@@ -11,5 +11,4 @@ public interface Predicate
 	 * @return true if predicate is true, false if predicate is not true
 	 */
 	public boolean truePredicate(Object pObject);
-
 }
