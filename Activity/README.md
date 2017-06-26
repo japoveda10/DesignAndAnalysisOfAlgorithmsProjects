@@ -11,7 +11,7 @@ There is a file located in the data folder of this project called **matrix.prope
 - matrix.width
 - matrix.element#
 
-The matrix is:
+The matrix that wants to be created and traversed according to matrix.properties file is:
 
  C/R | 0 | 1 | 2 | 3 |
 ------------ | ------------- | - | - | - |
