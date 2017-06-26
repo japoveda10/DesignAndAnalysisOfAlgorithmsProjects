@@ -11,6 +11,15 @@ There is a file located in the data folder of this project called **matrix.prope
 - matrix.width
 - matrix.element#
 
+The matrix is:
+
+ R/C | 0 | 1 | 2 | 3 |
+------------ | ------------- | - | - | - |
+**0** | 0 | 0 | 0 | 0
+**1** | 1 | 1 | 1 | 1
+**2** | 2 | 2 | 2 | 2
+**3** | 3 | 3 | 3 | 3
+
 In order to run the second part of the project, the program needs 1 argument, the **iterator´s name**:
 - matrix.MatrixIterator1 - goes through each element of the matrix by rows
 - matrix.MatrixIterator2 - goes through each element of the matrix by columns
