@@ -13,7 +13,7 @@ There is a file located in the data folder of this project called **matrix.prope
 
 The matrix is:
 
- R/C | 0 | 1 | 2 | 3 |
+ C/R | 0 | 1 | 2 | 3 |
 ------------ | ------------- | - | - | - |
 **0** | 0 | 0 | 0 | 0
 **1** | 1 | 1 | 1 | 1
