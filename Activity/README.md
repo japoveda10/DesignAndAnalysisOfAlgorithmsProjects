@@ -2,7 +2,7 @@
 This project has 2 parts:
 1. **Implements a linear search with ceirtanty using interfaces**
 
-Algorithm is the class that implements an interface called Predicate. The iterator to use is the prime numbers iterator.
+`Algorithm` is the class that implements an interface called `Predicate`. The iterator to use is the prime numbers iterator.
 
 2. **Ways to traverse a matrix**
 
@@ -10,3 +10,10 @@ There is a file located in the data folder of this project called **matrix.prope
 - matrix.length
 - matrix.width
 - matrix.element#
+
+The program needs 1 argument, the **iterator´s name**:
+- matrix.MatrixIterator1 - goes through each element of the matrix by rows
+- matrix.MatrixIterator2 - goes through each element of the matrix by columns
+
+
+
