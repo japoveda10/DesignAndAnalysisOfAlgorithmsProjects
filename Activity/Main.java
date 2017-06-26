@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Iterator;
+import java.util.Properties;
 
 import iterators.RecurrenceEquationIteratorExample5;
 import matrix.MatrixIterator1;
@@ -43,18 +46,58 @@ public class Main
 		System.out.println("Part 2");
 		System.out.println("");
 		
-		//A 4x4 matrix of objects is created
-		Object[][] matrix = new Object [4][4];
+		//The information about the matrix is in a file called matrix.properties
+		File file = new File("./data/matrix.properties");
+		Properties data = new Properties();
+		FileInputStream in = new FileInputStream(file);
 		
-		//Objects are put in the matrix
-		for(int i = 0; i<matrix.length; i++)
+		try
+		{
+			data.load(in);
+			in.close();
+		}
+		catch(Exception e)
+		{
+			throw new Exception("Invalid format");
+		}
+		
+		//Properties matrix.length and matrix.width are read from the matrix.properties file
+		String matrixLength = data.getProperty("matrix.length");
+		String matrixWidth = data.getProperty("matrix.width");
+		
+		int length = Integer.parseInt(matrixLength);
+		int width = Integer.parseInt(matrixWidth);
+		
+		//matrix of integers
+		Integer[][] matrix = new Integer[length][width];
+		
+		//Array used to store the elements specified in matrix.properties file
+		Integer[] elements = new Integer[length*width+2];
+		
+		//Iteration used to get each element specified in matrix.properties file
+		for(int i=0;i<length*width;i++)
+		{
+			String elementS = data.getProperty("matrix.element"+i);
+			int elementI = Integer.parseInt(elementS);
+			
+			//element from the matrix.properties file is put in the elements array
+			elements[i] = elementI;
+		}
+		
+		//index to traverse the elements array
+		int index = 0;
+		
+		//elements are put in the matrix
+		for(int i=0; i<matrix.length; i++)
 		{
 			for(int j=0; j<matrix[0].length; j++)
 			{
-				matrix[i][j] = i;
+				//object from the elements array is put in the matrix
+				matrix[i][j] = elements[index];
+				index++;
 			}
 		}
-				
+		
 		//args[0] has iterator name
 		String iteratorClassName = args[0];
 		
