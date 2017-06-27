@@ -32,14 +32,12 @@ public class Main
 		RecurrenceEquationIteratorExample5 it = new RecurrenceEquationIteratorExample5();
 		Object ob = 0;
 		
-		for(int i = 0; !algorithm.truePredicate(i); i++)
+		for(int i = 0; !algorithm.truePredicate(ob); i++)
 		{
 			Object o = it.next();
 			ob = o;
-			System.out.println(o.toString());
 		}
 		
-		System.out.println("");
 		System.out.println("The object that fulfills the predicate is " + ob.toString());
 		
 		System.out.println("");
