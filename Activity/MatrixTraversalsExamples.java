@@ -13,7 +13,7 @@ import matrix.MatrixIterator3;
  * Activity of the course Design and Analysis of Algorithms
  * @author David Cortés and Julio Poveda
  */
-public class MatrixTraversalsExample 
+public class MatrixTraversalsExamples 
 {
 	public static void main(String [] args) throws Exception
 	{
