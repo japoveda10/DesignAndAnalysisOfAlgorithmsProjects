@@ -40,7 +40,6 @@ public class MatrixIterator1 implements Iterator
 		}
 		else if(j == matrix.length)
 		{
-			System.out.println("else if");
 			j = 0;
 			i += 1;
 			object = matrix[i][j];			
