@@ -139,5 +139,55 @@ public class Main
 		{
 			System.out.println(matrix[i][i]);
 		}
+		
+		System.out.println("");
+		System.out.println("This is the diagonal traversal of the matrix");
+		
+		int i = 0;
+		int j = 0;
+		
+		boolean finished = false;
+		
+		while(i<=matrix.length && j<=matrix[0].length && !finished)
+		{
+			if(i>0)
+			{
+				System.out.println(matrix[i][j]);
+				i -= 1;
+				j++;
+				
+				if(j==4)
+				{	
+					if(i == 1)
+					{
+						i = 3;
+						j = 3;
+						System.out.println(matrix[i][j]);
+						finished = true;
+					}
+					else
+					{
+						i = 3;
+						j = 2;
+					}
+				}
+			}
+			else if(i == 0)
+			{				
+				if(j==matrix[0].length-1)
+				{
+					System.out.println(matrix[i][j]);
+					i = 3;
+					j = 1;
+				}
+				else
+				{
+					System.out.println(matrix[i][j]);
+					i = j+1;
+					j = 0;
+				}
+
+			}
+		}
 	}
 }
