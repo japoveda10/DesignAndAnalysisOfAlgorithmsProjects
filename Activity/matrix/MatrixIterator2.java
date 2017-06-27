@@ -23,26 +23,22 @@ public class MatrixIterator2 implements Iterator
 	@Override
 	public boolean hasNext() 
 	{
-		return i>=0;
+		return j<matrix[0].length;
 	}
 
 	@Override
 	public Object next() 
 	{
-		Object object = null;
+		Object object = matrix[i][j];
 		
-		if(i < matrix.length)
+		if(i < matrix.length-1)
 		{
-			System.out.println("index i = " + i);
-			System.out.println("index j = " + j);
-			object = matrix[i][j];
 			i += 1;			
 		}
-		else if(i == matrix.length)
+		else
 		{
 			i = 0;
 			j += 1;
-			object = matrix[i][j];			
 		}
 		
 		return object;

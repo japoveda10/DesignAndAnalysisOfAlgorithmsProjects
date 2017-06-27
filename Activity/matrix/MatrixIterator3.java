@@ -7,13 +7,13 @@ import java.util.Iterator;
  * Goes through each element of the matrix by rows
  * @author David Cortés and Julio Poveda
  */
-public class MatrixIterator1 implements Iterator
+public class MatrixIterator3 implements Iterator
 {
 	Object[][] matrix;
 	int i;
 	int j;
 	
-	public MatrixIterator1(Object[][] pObjectsMatrix)
+	public MatrixIterator3(Object[][] pObjectsMatrix)
 	{
 		matrix = pObjectsMatrix;
 		i = 0;
@@ -31,14 +31,15 @@ public class MatrixIterator1 implements Iterator
 	{
 		Object object = matrix[i][j];
 		
-		if(j < matrix[0].length-1)
+		if(i>0)
 		{
-			j += 1;			
+			i -= 1;
+			j += 1;
 		}
 		else
 		{
+			i = j+1;
 			j = 0;
-			i += 1;
 		}
 		
 		return object;

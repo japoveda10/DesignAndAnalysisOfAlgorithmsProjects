@@ -6,12 +6,14 @@ import java.util.Properties;
 import iterators.RecurrenceEquationIteratorExample5;
 import matrix.MatrixIterator1;
 import matrix.MatrixIterator2;
+import matrix.MatrixIterator3;
+
 
 /**
  * Activity of the course Design and Analysis of Algorithms
  * @author David Cortés and Julio Poveda
  */
-public class Main 
+public class MatrixTraversalsExample 
 {
 	public static void main(String [] args) throws Exception
 	{
@@ -20,29 +22,8 @@ public class Main
 		// Activity
 		//----------------------------------------------------------
 		System.out.println("--------------------------------------");
-		System.out.println("Activity");
+		System.out.println("Activity Part 2");
 		System.out.println("--------------------------------------");
-		
-		System.out.println("");
-		System.out.println("Part 1");
-		System.out.println("");
-		
-		Algorithm algorithm = new Algorithm();
-	
-		RecurrenceEquationIteratorExample5 it = new RecurrenceEquationIteratorExample5();
-		Object ob = 0;
-		
-		for(int i = 0; !algorithm.truePredicate(ob); i++)
-		{
-			Object o = it.next();
-			ob = o;
-		}
-		
-		System.out.println("The object that fulfills the predicate is " + ob.toString());
-		
-		System.out.println("");
-		System.out.println("Part 2");
-		System.out.println("");
 		
 		//The information about the matrix is in a file called matrix.properties
 		File file = new File("./data/matrix.properties");
@@ -99,95 +80,37 @@ public class Main
 		//args[0] has iterator name
 		String iteratorClassName = args[0];
 		
-		Iterator it2;
+		Iterator iterator = null;
 		
 		if(iteratorClassName.equals("matrix.MatrixIterator1"))
 		{
 			//Iterator is MatrixIterator1
-			it2 = new MatrixIterator1(matrix);
+			iterator = new MatrixIterator1(matrix);
 			
 			System.out.println("This matrix iterator goes through each element of the matrix by rows:");
 			System.out.println("");
-			
-			for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
-			{
-				Object o = it2.next();
-				System.out.println(o.toString());
-			}
 		}
 		else if(iteratorClassName.equals("matrix.MatrixIterator2"))
 		{
 			//Iterator is MatrixIterator2
-			it2 = new MatrixIterator2(matrix);
+			iterator = new MatrixIterator2(matrix);
 			
 			System.out.println("This matrix iterator goes through each element of the matrix by columns:");
 			System.out.println("");
+		}
+		else if(iteratorClassName.equals("matrix.MatrixIterator3"))
+		{
+			//Iterator is MatrixIterator2
+			iterator = new MatrixIterator3(matrix);
 			
-			for(int i = 0; i<=matrix.length*matrix[0].length+2; i++)
-			{
-				Object o = it2.next();
-				System.out.println(o.toString());
-			}
+			System.out.println("This matrix iterator traverses the matrix diagonally from the upper left corner until the main diagonal:");
+			System.out.println("");
 		}
 		
-		System.out.println("");
-		System.out.println("This is the main diagonal of the matrix: ");
-		System.out.println("");
-		
-		//Visit the elements of the matrix in the main diagonal
-		for(int i = 0; i<matrix[0].length && i<matrix.length;i++)
+		while(iterator.hasNext())
 		{
-			System.out.println(matrix[i][i]);
-		}
-		
-		System.out.println("");
-		System.out.println("This is the diagonal traversal of the matrix");
-		
-		int i = 0;
-		int j = 0;
-		
-		boolean finished = false;
-		
-		while(i<=matrix.length && j<=matrix[0].length && !finished)
-		{
-			if(i>0)
-			{
-				System.out.println(matrix[i][j]);
-				i -= 1;
-				j++;
-				
-				if(j==4)
-				{	
-					if(i == 1)
-					{
-						i = 3;
-						j = 3;
-						System.out.println(matrix[i][j]);
-						finished = true;
-					}
-					else
-					{
-						i = 3;
-						j = 2;
-					}
-				}
-			}
-			else if(i == 0)
-			{				
-				if(j==matrix[0].length-1)
-				{
-					System.out.println(matrix[i][j]);
-					i = 3;
-					j = 1;
-				}
-				else
-				{
-					System.out.println(matrix[i][j]);
-					i = j+1;
-					j = 0;
-				}
-
-			}
-		}
+			Object o = iterator.next();
+			System.out.println(o.toString());
+		}		
 	}
 }
