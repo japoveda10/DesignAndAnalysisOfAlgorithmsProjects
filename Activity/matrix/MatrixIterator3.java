@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * Class that represents an objects matrix iterator
  * Goes through each element of the matrix by rows
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class MatrixIterator3 implements Iterator
 {

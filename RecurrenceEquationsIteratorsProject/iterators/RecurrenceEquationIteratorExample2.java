@@ -1,12 +1,11 @@
 package iterators;
 
-
 import java.util.Iterator;
 
 /**
  * Class that represents the iterator of the next recurrence equation
  * Xn=sqrt(n)
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class RecurrenceEquationIteratorExample2 implements Iterator
 {
@@ -23,6 +22,7 @@ public class RecurrenceEquationIteratorExample2 implements Iterator
 	{
 		double answer = Math.sqrt(n);
 		n++;
+		
 		return answer;
 	}
 }

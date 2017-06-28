@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * Class that represents the iterator of the next recurrence equation
  * Xn=1+2X(n/2) X0=1
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class RecurrenceEquationIteratorExample4 implements Iterator
 {
@@ -31,6 +31,7 @@ public class RecurrenceEquationIteratorExample4 implements Iterator
 			//answer is log(n) because the recurrence equation is the complexity of binary search
 			double answer = Math.log(n);
 			n++;
+			
 			return answer;
 		}
 		

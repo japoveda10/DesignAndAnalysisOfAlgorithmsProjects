@@ -1,11 +1,10 @@
 package iterators;
 
-
 import java.util.Iterator;
 
 /**
  * Class that represents a square numbers interator
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class SquareNumbersIterator implements Iterator
 {
@@ -22,6 +21,7 @@ public class SquareNumbersIterator implements Iterator
 	{
 		Integer square = n*n;
 		n++;
+		
 		return square;
 	}
 }

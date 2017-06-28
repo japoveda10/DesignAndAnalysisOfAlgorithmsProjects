@@ -1,5 +1,4 @@
 
-
 import iterators.RecurrenceEquationIteratorExample1;
 import iterators.RecurrenceEquationIteratorExample2;
 import iterators.RecurrenceEquationIteratorExample3;
@@ -12,13 +11,12 @@ import java.util.Iterator;
 
 /**
  * Main class of the project that has some recurrence equations iterators
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class Main 
 {
 	public static void main(String[] args) throws Exception
 	{
-		
 		System.out.println("----------------------------------------------");
 		System.out.println("Recurrence equations example iterators project");
 		System.out.println("----------------------------------------------");

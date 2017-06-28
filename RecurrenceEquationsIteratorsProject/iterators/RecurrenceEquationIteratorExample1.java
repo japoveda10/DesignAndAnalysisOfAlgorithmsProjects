@@ -1,12 +1,11 @@
 package iterators;
 
-
 import java.util.Iterator;
 
 /**
  * Class that represents an iterator of the next recurrence equation
  * Xn=2X(n-1), X0 = 1
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class RecurrenceEquationIteratorExample1 implements Iterator
 {
@@ -23,6 +22,7 @@ public class RecurrenceEquationIteratorExample1 implements Iterator
 	{
 		Object answer = x;
 		x = 2*x;
+		
 		return answer;
 	}
 }

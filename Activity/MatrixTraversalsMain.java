@@ -8,18 +8,17 @@ import matrix.MatrixIterator1;
 import matrix.MatrixIterator2;
 import matrix.MatrixIterator3;
 
-
 /**
- * Activity of the course Design and Analysis of Algorithms
- * @author David Cortés and Julio Poveda
+ * Main class of part 2 of Activity of the course Design and Analysis of Algorithms
+ * @author David Cortes and Julio Poveda
  */
-public class MatrixTraversalsExamples 
+public class MatrixTraversalsMain 
 {
 	public static void main(String [] args) throws Exception
 	{
 		
 		//----------------------------------------------------------
-		// Activity
+		// Activity Part 2
 		//----------------------------------------------------------
 		System.out.println("--------------------------------------");
 		System.out.println("Activity Part 2");
@@ -103,7 +102,7 @@ public class MatrixTraversalsExamples
 			//Iterator is MatrixIterator2
 			iterator = new MatrixIterator3(matrix);
 			
-			System.out.println("This matrix iterator traverses the matrix diagonally from the upper left corner until the main diagonal:");
+			System.out.println("This matrix iterator traverses the matrix diagonally from the upper left corner until the last element of the main diagonal:");
 			System.out.println("");
 		}
 		

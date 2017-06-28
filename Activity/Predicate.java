@@ -1,7 +1,7 @@
 
 /**
  * Interface that represents a predicate
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public interface Predicate 
 {
