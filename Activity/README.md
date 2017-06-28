@@ -16,7 +16,7 @@ This part of the project traverses a matrix by rows, columns or diagonally until
 - matrix.width
 - matrix.element#
 
-The matrix that wants to be created and traversed according to matrix.properties file is:
+The matrix elements specified in **matrix.properties** are put in the matrix by rows. The matrix that wants to be created and traversed according to matrix.properties file is:
 
  C/R | 0 | 1 | 2 | 3 |
 ------------ | ------------- | - | - | - |
