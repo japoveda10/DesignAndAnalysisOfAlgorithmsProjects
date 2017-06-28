@@ -12,3 +12,5 @@ Width of the matrix
 Element # of the matrix
 
 # can be replaced with a number.
+
+The matrix elements specified in matrix.properties are put in the matrix by rows.
