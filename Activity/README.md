@@ -6,7 +6,7 @@ This part of the project iterates through a prime numbers iterator until it find
 
 In order to run the first part of the project, the program needs 1 argument, **a number**. This number will affect the behaviour of `Algorithm`´s method `truePredicate`.
 
-For example, if the argument is 100000, `truePredicate` will return true if a number is greater than 100000.
+For example, if the argument is 100000, `truePredicate` will return `true` if a number is greater than 100000.
 
 
 2. **Ways to traverse a matrix**
