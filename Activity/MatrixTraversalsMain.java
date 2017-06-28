@@ -99,7 +99,7 @@ public class MatrixTraversalsMain
 		}
 		else if(iteratorClassName.equals("matrix.MatrixIterator3"))
 		{
-			//Iterator is MatrixIterator2
+			//Iterator is MatrixIterator3
 			iterator = new MatrixIterator3(matrix);
 			
 			System.out.println("This matrix iterator traverses the matrix diagonally from the upper left corner until the last element of the main diagonal:");
