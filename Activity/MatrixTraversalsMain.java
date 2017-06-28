@@ -46,6 +46,12 @@ public class MatrixTraversalsMain
 		int length = Integer.parseInt(matrixLength);
 		int width = Integer.parseInt(matrixWidth);
 		
+		//Verifies that matrix that wants to be created is squared
+		if(length != width)
+		{
+			throw new Exception("Matrix is not squared");
+		}
+		
 		//matrix of integers
 		Integer[][] matrix = new Integer[length][width];
 		
