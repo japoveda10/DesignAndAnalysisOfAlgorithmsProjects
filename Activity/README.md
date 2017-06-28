@@ -2,11 +2,11 @@
 This project has 2 parts:
 1. **Implements a linear search with ceirtanty using interfaces**
 
-This part of the project iterates through a prime numbers iterator until it finds the first element that fulfills the `Algorithm` class predicate. The main class of this part of the project is `LinearSearchWithCertaintyExample`. `Algorithm` is the class that implements an interface called `Predicate`. 
+This part of the project iterates through a prime numbers iterator until it finds the first element that fulfills the `Algorithm` class predicate. The main class of this part of the project is `LinearSearchWithCertaintyMain`. `Algorithm` is the class that implements an interface called `Predicate`. 
 
 2. **Ways to traverse a matrix**
 
-This part of the project traverses a matrix by rows, columns or diagonally until reachng the last element of the main matrix. The main class of this part of the project is `MatrixTraversalsExamples`. There is a file located in the data folder of this project called **matrix.properties**. This file has the properties of the matrix that wants to be created and traversed. That file has the next properties:
+This part of the project traverses a matrix by rows, columns or diagonally until reachng the last element of the main matrix. The main class of this part of the project is `MatrixTraversalsMain`. There is a file located in the data folder of this project called **matrix.properties**. This file has the properties of the matrix that wants to be created and traversed. That file has the next properties:
 - matrix.length
 - matrix.width
 - matrix.element#
