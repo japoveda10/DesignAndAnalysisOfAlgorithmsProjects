@@ -2,7 +2,12 @@
 This project has 2 parts:
 1. **Implements a linear search with ceirtanty using interfaces**
 
-This part of the project iterates through a prime numbers iterator until it finds the first element that fulfills the `Algorithm` class predicate. The main class of this part of the project is `LinearSearchWithCertaintyMain`. `Algorithm` is the class that implements an interface called `Predicate`. 
+This part of the project iterates through a prime numbers iterator until it finds the first element that fulfills the `Algorithm` class predicate. The main class of this part of the project is `LinearSearchWithCertaintyMain`. `Algorithm` is the class that implements an interface called `Predicate`.
+
+In order to run the first part of the project, the program needs 1 argument, **a number**. This number will affect the behaviour of `Algorithm`´s method `truePredicate`.
+
+For example, if the argument is 100000, `truePredicate` will return true if a number is greater than 100000.
+
 
 2. **Ways to traverse a matrix**
 
