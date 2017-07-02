@@ -1,4 +1,8 @@
 
+/**
+ * Class that implements Bubble Sort
+ * @author David Cortés and Julio Poveda
+ */
 public class BubbleSort implements NumbersArraySorter 
 {
 

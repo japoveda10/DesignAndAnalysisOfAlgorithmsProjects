@@ -17,14 +17,16 @@ public class ExampleSort {
 	 * @throws Exception if the input file does not exist or it can not be read
 	 * @throws Exception If the algorithm class can not be loaded
 	 */
-	public static void main(String[] args) throws Exception {
-		
+	public static void main(String[] args) throws Exception
+	{
+		//Array to sort
 		double[] numbers = {2,1,3,1};
 		
 		MergeSort ms = new MergeSort();
 		
 		ms.sort(numbers);
 		
+		//Prints the elements of the sorted array
 		for(double i: numbers)
 		{
 			System.out.println(numbers[(int) i]);
