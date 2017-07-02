@@ -21,14 +21,14 @@ public class ExampleSort {
 		
 		double[] numbers = {2,1,3,1};
 		
-		BubbleSort bs = new BubbleSort();
+		MergeSort ms = new MergeSort();
 		
-		bs.sort(numbers);
+		ms.sort(numbers);
 		
-		System.out.println(numbers[0]);
-		System.out.println(numbers[1]);
-		System.out.println(numbers[2]);
-		System.out.println(numbers[3]);
+		for(double i: numbers)
+		{
+			System.out.println(numbers[(int) i]);
+		}
 	}
 		/*//Read parameters
 		String inFilename = args[0];
