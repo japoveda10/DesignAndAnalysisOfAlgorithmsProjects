@@ -1,7 +1,7 @@
 
 /**
- * Class that implements Bubble Sort
- * @author David Cortés and Julio Poveda
+ * Class that implements BubbleSort
+ * @author David Cortes and Julio Poveda
  */
 public class BubbleSort implements NumbersArraySorter 
 {

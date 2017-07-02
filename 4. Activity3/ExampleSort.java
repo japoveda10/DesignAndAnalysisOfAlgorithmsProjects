@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ExampleSort {
+/**
+ * Main class of Activity 3 project
+ * @author David Cortes and Julio Poveda
+ */
+public class ExampleSort
+{
 
 	/**
 	 * Main method for the numbers sorter example. It requires three parameters:

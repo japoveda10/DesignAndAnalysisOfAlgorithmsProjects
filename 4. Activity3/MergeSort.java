@@ -1,7 +1,7 @@
 
 /**
  * Class that implements MergeSort
- * @author David Cortés and Julio Poveda
+ * @author David Cortes and Julio Poveda
  */
 public class MergeSort implements NumbersArraySorter
 {
@@ -39,7 +39,7 @@ public class MergeSort implements NumbersArraySorter
 			
 			//Merge both halves
 			mergeSortedArrays(lowerIndex, middle, higherIndex);
-			}
+		}
 	}
 	
 	/**
