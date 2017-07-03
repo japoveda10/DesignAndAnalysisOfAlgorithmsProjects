@@ -24,20 +24,7 @@ public class ExampleSort
 	 */
 	public static void main(String[] args) throws Exception
 	{
-		//Array to sort
-		double[] numbers = {2,1,3,1};
-		
-		QuickSort qs = new QuickSort();
-		
-		qs.sort(numbers);
-		
-		//Prints the elements of the sorted array
-		for(double i: numbers)
-		{
-			System.out.println(numbers[(int) i]);
-		}
-	}
-		/*//Read parameters
+		//Read parameters
 		String inFilename = args[0];
 		String outFilename = args[1];
 		String algorithmClassName = null;
@@ -93,6 +80,6 @@ public class ExampleSort
 			if(out!=null) out.close();
 		}
 		System.out.println("Numbers sorted. Total time(milliseconds): "+(endTime-startTime));
-	}*/
+	}
 
 }

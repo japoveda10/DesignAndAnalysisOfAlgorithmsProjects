@@ -15,8 +15,8 @@ public class QuickSort implements NumbersArraySorter
             return;
         }
 		
-        array = numbers;
-        quickSort(0, numbers.length - 1);
+		array = numbers;
+		quickSort(0, numbers.length - 1);
 	}
 
 	public void quickSort(int lowerIndex, int higherIndex)
