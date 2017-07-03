@@ -27,9 +27,9 @@ public class ExampleSort
 		//Array to sort
 		double[] numbers = {2,1,3,1};
 		
-		MergeSort ms = new MergeSort();
+		QuickSort qs = new QuickSort();
 		
-		ms.sort(numbers);
+		qs.sort(numbers);
 		
 		//Prints the elements of the sorted array
 		for(double i: numbers)
