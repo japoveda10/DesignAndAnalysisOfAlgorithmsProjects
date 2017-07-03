@@ -1,9 +1,13 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Main class of Activity 3 project
@@ -29,6 +33,37 @@ public class ExampleSort
 		String outFilename = args[1];
 		String algorithmClassName = null;
 		if(args.length>2) algorithmClassName = args[2];
+		
+		//Writes aleatory numbers from 0 to 100 in inFilename
+		BufferedWriter writer = null;
+        try {
+            
+            File archivo = new File(inFilename);
+            writer = new BufferedWriter(new FileWriter(archivo));
+            Random random = new Random();
+            
+            for(int i=0; i<1000000; i++)
+            {
+            		int number = random.nextInt(100);
+                writer.write(number+System.lineSeparator());
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+               // Close the writer regardless of what happens...
+               writer.close();
+            }
+            catch (Exception e)
+            {
+            	
+            }
+        }
 		
 		//Read input file
 		List<Double> numbersList = new ArrayList<>();
@@ -81,5 +116,4 @@ public class ExampleSort
 		}
 		System.out.println("Numbers sorted. Total time(milliseconds): "+(endTime-startTime));
 	}
-
 }
