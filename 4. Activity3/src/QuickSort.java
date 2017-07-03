@@ -1,6 +1,7 @@
 
 /**
  * Class that implements QuickSort
+ * Based on http://www.java2novice.com/java-sorting-algorithms/quick-sort/
  * @author David Cortes and Julio Poveda
  */
 public class QuickSort implements NumbersArraySorter

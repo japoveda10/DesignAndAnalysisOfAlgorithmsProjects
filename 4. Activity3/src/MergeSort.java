@@ -1,6 +1,7 @@
 
 /**
  * Class that implements MergeSort
+ * Based on http://www.java2novice.com/java-sorting-algorithms/merge-sort/
  * @author David Cortes and Julio Poveda
  */
 public class MergeSort implements NumbersArraySorter
