@@ -15,6 +15,13 @@ import java.util.Random;
  */
 public class ExampleSort
 {
+	//-----------------------------------------------------------
+	// Constants
+	//-----------------------------------------------------------
+	/**
+	 * Number of elements to sort
+	 */
+	public final static int ELEMENTS_QUANTITY = 1000000;
 
 	/**
 	 * Main method for the numbers sorter example. It requires three parameters:
@@ -42,7 +49,7 @@ public class ExampleSort
             writer = new BufferedWriter(new FileWriter(archivo));
             Random random = new Random();
             
-            for(int i=0; i<1000000; i++)
+            for(int i=0; i<ELEMENTS_QUANTITY; i++)
             {
             		int number = random.nextInt(100);
                 writer.write(number+System.lineSeparator());
