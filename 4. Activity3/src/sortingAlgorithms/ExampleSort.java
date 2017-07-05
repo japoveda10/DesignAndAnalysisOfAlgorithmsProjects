@@ -1,3 +1,4 @@
+package sortingAlgorithms;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -41,10 +42,10 @@ public class ExampleSort
 		String algorithmClassName = null;
 		if(args.length>2) algorithmClassName = args[2];
 		
-		//Writes aleatory numbers from 0 to 100 in inFilename
+		//Writes random numbers from 0 to 100 in inFilename
 		BufferedWriter writer = null;
-        try {
-            
+        try
+        {
             File archivo = new File(inFilename);
             writer = new BufferedWriter(new FileWriter(archivo));
             Random random = new Random();

@@ -1,4 +1,4 @@
-
+package sortingAlgorithms;
 /**
  * Class that implements QuickSort
  * Based on http://www.java2novice.com/java-sorting-algorithms/quick-sort/
