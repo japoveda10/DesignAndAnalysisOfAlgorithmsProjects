@@ -2,6 +2,14 @@ package coinChange;
 
 public class DivideAndConquerCoinChange implements CoinChangeCalculator
 {
+	//-------------------------------------------------------------------------
+	// Attributes
+	//-------------------------------------------------------------------------
+	private static boolean answerCalculated = false;
+	
+	//-------------------------------------------------------------------------
+	// Main
+	//-------------------------------------------------------------------------
 	public static void main(String[] args)
 	{
 		int[] array = {1,2,3,4,5};
@@ -13,6 +21,9 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 		}
 	}
 	
+	//-------------------------------------------------------------------------
+	// Methods
+	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
 	{
@@ -32,11 +43,13 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 		
 		if(totalValue == 0)
 		{
+			answerCalculated = true;
 			return answer;
 		}
 		else if((result * greater) == totalValue)
 		{
 			answer[denominations.length-1] = (totalValue / greater);
+			answerCalculated = true;
 		}
 		else
 		{
@@ -48,12 +61,20 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 			System.arraycopy(denominations, leftArray.length, rightArray, 0, rightArray.length);
 			
 			int[] second = calculateOptimalChange1(totalValue / 2, rightArray);
-			//If to determine if it is necessary to revise second part of array
 			
-			//int[] first = calculateOptimalChange2(totalValue / 2, leftArray);
-			
-			//System.arraycopy(first, 0, m, 0, first.length);
-			//System.arraycopy(second, 0, m, first.length, second.length);
+			//If to determine if it is necessary to revise first part of array
+			if(!answerCalculated)
+			{
+				int[] first = calculateOptimalChange1(totalValue / 2, leftArray);
+				answerCalculated = true;
+				
+				System.arraycopy(first, 0, answer, 0, first.length);
+				System.arraycopy(second, 0, answer, first.length, second.length);
+			}
+			else
+			{
+				System.arraycopy(second, 0, answer, answer.length / 2, second.length);
+			}
 		}
 						
 		return answer;

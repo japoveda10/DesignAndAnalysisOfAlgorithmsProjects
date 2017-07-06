@@ -2,6 +2,9 @@ package coinChange;
 
 public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 {
+	//-------------------------------------------------------------------------
+	// Main
+	//-------------------------------------------------------------------------
 	public static void main(String[] args)
 	{
 		int[] denominations = {1,2,3,4,5};
@@ -15,6 +18,10 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 		}
 	}
 	
+	
+	//-------------------------------------------------------------------------
+	// Methods
+	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
 	{
@@ -48,5 +55,4 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 		
 		return answer;
 	}
-	
 }

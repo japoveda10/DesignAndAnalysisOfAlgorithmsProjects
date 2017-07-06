@@ -2,6 +2,9 @@ package coinChange;
 
 public class GreedyAlgorithmCoinChange implements CoinChangeCalculator
 {
+	//-------------------------------------------------------------------------
+	// Main
+	//-------------------------------------------------------------------------
 	public static void main(String[] args)
 	{
 		int[] denominations = {1,2,3,4,5};
@@ -15,6 +18,9 @@ public class GreedyAlgorithmCoinChange implements CoinChangeCalculator
 		}
 	}
 	
+	//-------------------------------------------------------------------------
+	// Methods
+	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
 	{
