@@ -41,11 +41,11 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 		else if(totalValue / denominations[denominations.length-1] >0)
 		{
 			int number = totalValue / denominations[denominations.length-1];
-			int residual = totalValue - denominations[denominations.length-1] * number;
+			int residual = totalValue - (denominations[denominations.length-1] * number);
 			
 			if(residual == 0)
 			{
-				answer[denominations.length-1] += denominations[denominations.length-1];
+				answer[denominations.length-1] += (totalValue / denominations[denominations.length-1]);
 			}
 			else
 			{
