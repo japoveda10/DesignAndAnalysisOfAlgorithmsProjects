@@ -45,11 +45,20 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 			
 			if(residual == 0)
 			{
-				answer[denominations.length-1] = denominations[denominations.length-1];
+				answer[denominations.length-1] += denominations[denominations.length-1];
 			}
 			else
 			{
-				//Recursive call
+				for(int i = denominations.length-1; i<denominations.length && totalValue != 0; i--)
+				{
+					if(denominations[i]<=totalValue)
+					{
+						answer[i] += totalValue / denominations[i];
+						totalValue -= answer[i] * denominations[i];
+						
+						answer = calculateOptimalChange1(totalValue, denominations);
+					}
+				}
 			}
 		}
 		
