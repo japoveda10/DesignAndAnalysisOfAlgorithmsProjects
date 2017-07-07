@@ -3,16 +3,39 @@ package coinChange;
 public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 {
 	//-------------------------------------------------------------------------
+	// Attributes
+	//-------------------------------------------------------------------------
+	private int[] denominationsArray;
+	
+	private int [] resultArray;
+	
+	private static int[][] matrix;
+	
+	//-------------------------------------------------------------------------
 	// Main
 	//-------------------------------------------------------------------------
 	public static void main(String[] args)
 	{
 		DynamicProgrammingCoinChange program = new DynamicProgrammingCoinChange();
 		
-		int[] denominations = {1,2,3,4,5};
-		int totalValue = 103;
+		int[] array = {1,2,3,4,5};
+		int totalValue = 20;
 		
-		int[] answer = program.calculateOptimalChange(totalValue, denominations);
+		matrix = new int[totalValue][array.length+1];
+				
+		int[] answer = program.calculateOptimalChange(totalValue, array);
+		
+		System.out.println("Matrix");
+		
+		for(int i = 0; i<totalValue; i++)
+		{
+			for(int j=0; j<array.length+1; j++)
+			{
+				System.out.println(matrix[i][j]);
+			}
+		}
+		
+		System.out.println("Answer");
 		
 		for(int i: answer)
 		{
@@ -20,43 +43,58 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 		}
 	}
 	
-	
 	//-------------------------------------------------------------------------
 	// Methods
 	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
 	{
-		int[] answer = new int[denominations.length];
+		denominationsArray = denominations;
+		resultArray = new int[denominations.length];
 		
-		if(totalValue == 0)
+		return dynamicProgramming(denominations.length-1, totalValue);
+	}
+	
+	public int[] dynamicProgramming(int pI, int pValue)
+	{
+		if(pValue == 0)
 		{
-			return answer;
+			matrix[pValue][pI] = 0;
+			return resultArray;
 		}
-		else if(totalValue / denominations[denominations.length-1] >0)
+		else if(pI == 0)
 		{
-			int number = totalValue / denominations[denominations.length-1];
-			int residual = totalValue - (denominations[denominations.length-1] * number);
-			
-			if(residual == 0)
+			matrix[pValue][pI] = pValue;
+			resultArray[pI] = pValue;
+		}
+		else
+		{			
+			if(pValue < denominationsArray[pI])
 			{
-				answer[denominations.length-1] += (totalValue / denominations[denominations.length-1]);
+				return dynamicProgramming(pI-1, pValue);
 			}
 			else
 			{
-				for(int i = denominations.length-1; i<denominations.length && totalValue != 0; i--)
+				if(pValue % denominationsArray[pI] == 0)
 				{
-					if(denominations[i]<=totalValue)
+					resultArray[pI] = (pValue / denominationsArray[pI]);
+				}
+				else
+				{
+					resultArray[pI] = (pValue / denominationsArray[pI]);
+					
+					if(matrix[pValue-(resultArray[pI]*denominationsArray[pI])][pI-1] > 0)
 					{
-						answer[i] += totalValue / denominations[i];
-						totalValue -= answer[i] * denominations[i];
-						
-						answer = calculateOptimalChange(totalValue, denominations);
+						resultArray[pI-1] = matrix[pValue][pI-1];
+					}
+					else
+					{
+						return dynamicProgramming(pI-1, pValue-(resultArray[pI]*denominationsArray[pI]));
 					}
 				}
 			}
 		}
 		
-		return answer;
+		return resultArray;
 	}
 }
