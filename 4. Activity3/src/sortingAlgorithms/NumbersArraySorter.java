@@ -1,5 +1,9 @@
 package sortingAlgorithms;
 
-public interface NumbersArraySorter {
+/**
+ * NumbersArraySorter interface
+ */
+public interface NumbersArraySorter
+{
 	public void sort(double [] numbers);
 }

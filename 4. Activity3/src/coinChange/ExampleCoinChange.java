@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Main class of part 2 of Activity 3 project
+ * @author David Cortes and Julio Poveda
+ */
 public class ExampleCoinChange
 {
+	//-------------------------------------------------------------------------
+	// Main
+	//-------------------------------------------------------------------------
 	/**
 	 * Main method for the coin change example. It requires three parameters:
 	 * args[0]: Fully qualified class name of the algorithm to run
@@ -15,11 +22,12 @@ public class ExampleCoinChange
 	 * @throws Exception If the algorithm class can not be loaded
 	 * @throws Exception If the list of denominations does not include the denomination 1 
 	 */
-	public static void main(String[] args) throws Exception {
-		
+	public static void main(String[] args) throws Exception
+	{
 		//Load algorithm class
 		String algorithmClassName = args[0];
 		CoinChangeCalculator calculator = (CoinChangeCalculator)Class.forName(algorithmClassName).newInstance();
+		
 		//Load input data
 		int totalValue = Integer.parseInt(args[1]);
 		String [] strDenominations = args[2].split(",");
@@ -28,7 +36,10 @@ public class ExampleCoinChange
 		Collections.sort(denominationsList);
 		if(denominationsList.get(0)!=1) throw new Exception("The smallest denomination should be 1");
 		int [] denominations = new int [denominationsList.size()];
-		for(int i=0;i<denominations.length;i++) denominations[i] = denominationsList.get(i);
+		for(int i=0;i<denominations.length;i++) {
+			if(i<denominations.length-1 && denominationsList.get(i) == denominationsList.get(i+1)) throw new Exception ("All denominations must be different. Denomination "+denominationsList.get(i)+" appears twice");
+			denominations[i] = denominationsList.get(i);  
+		}
 		
 		//Run the coin change algorithm
 		long startTime = System.currentTimeMillis();

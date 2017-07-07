@@ -1,4 +1,5 @@
 package sortingAlgorithms;
+
 /**
  * Class that implements QuickSort
  * Based on http://www.java2novice.com/java-sorting-algorithms/quick-sort/
@@ -6,8 +7,14 @@ package sortingAlgorithms;
  */
 public class QuickSort implements NumbersArraySorter
 {
+	//-----------------------------------------------------------
+	// Attributes
+	//-----------------------------------------------------------
 	private double array[];
     
+	//-----------------------------------------------------------
+	// Methods
+	//-----------------------------------------------------------
 	@Override
 	public void sort(double[] numbers)
 	{

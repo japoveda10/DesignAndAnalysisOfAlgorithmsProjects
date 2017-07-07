@@ -7,12 +7,18 @@ package sortingAlgorithms;
  */
 public class MergeSort implements NumbersArraySorter
 {
+	//-----------------------------------------------------------
+	// Attributes
+	//-----------------------------------------------------------
 	//Sorted array
 	private double[] array;
 	
 	//Auxiliary array
 	private double[] tempArray;
 	
+	//-----------------------------------------------------------
+	// Methods
+	//-----------------------------------------------------------
 	@Override
 	public void sort(double[] numbers) 
 	{

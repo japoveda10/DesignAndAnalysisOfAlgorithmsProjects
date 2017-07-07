@@ -1,4 +1,5 @@
 package sortingAlgorithms;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Main class of Activity 3 project
+ * Main class of part 1 of Activity 3 project
  * @author David Cortes and Julio Poveda
  */
 public class ExampleSort
@@ -23,7 +24,10 @@ public class ExampleSort
 	 * Number of elements to sort
 	 */
 	public final static int ELEMENTS_QUANTITY = 1000000;
-
+	
+	//-----------------------------------------------------------
+	// Main
+	//-----------------------------------------------------------
 	/**
 	 * Main method for the numbers sorter example. It requires three parameters:
 	 * args[0]: Input file with numbers to sort. It must be a text file with one number per line
@@ -36,44 +40,36 @@ public class ExampleSort
 	 */
 	public static void main(String[] args) throws Exception
 	{
-		//Read parameters
+		// Read parameters
 		String inFilename = args[0];
 		String outFilename = args[1];
 		String algorithmClassName = null;
-		if(args.length>2) algorithmClassName = args[2];
-		
-		//Writes random numbers from 0 to 100 in inFilename
+		if (args.length > 2)
+			algorithmClassName = args[2];
+
+		// Writes random numbers from 0 to 100 in inFilename
 		BufferedWriter writer = null;
-        try
-        {
-            File archivo = new File(inFilename);
-            writer = new BufferedWriter(new FileWriter(archivo));
-            Random random = new Random();
-            
-            for(int i=0; i<ELEMENTS_QUANTITY; i++)
-            {
-            		int number = random.nextInt(100);
-                writer.write(number+System.lineSeparator());
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-               // Close the writer regardless of what happens...
-               writer.close();
-            }
-            catch (Exception e)
-            {
-            	
-            }
-        }
-		
-		//Read input file
+		try {
+			File archivo = new File(inFilename);
+			writer = new BufferedWriter(new FileWriter(archivo));
+			Random random = new Random();
+
+			for (int i = 0; i < ELEMENTS_QUANTITY; i++) {
+				int number = random.nextInt(100);
+				writer.write(number + System.lineSeparator());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// Close the writer regardless of what happens...
+				writer.close();
+			} catch (Exception e) {
+
+			}
+		}
+
+		// Read input file
 		List<Double> numbersList = new ArrayList<>();
 		FileReader reader = null;
 		BufferedReader in = null;
@@ -81,47 +77,53 @@ public class ExampleSort
 			reader = new FileReader(inFilename);
 			in = new BufferedReader(reader);
 			String line = in.readLine();
-			for (int i=0;line != null;i++) {
+			for (int i = 0; line != null; i++) {
 				try {
 					numbersList.add(Double.parseDouble(line));
 				} catch (Exception e) {
-					System.err.println("Can not read number from line "+i+" content: "+line);
+					System.err.println("Can not read number from line " + i + " content: " + line);
 					e.printStackTrace();
 				}
 				line = in.readLine();
 			}
 		} finally {
-			if (in != null) in.close();
-			if (reader != null) reader.close();
+			if (in != null)
+				in.close();
+			if (reader != null)
+				reader.close();
 		}
-		double [] numbers = new double [numbersList.size()];
-		for(int i=0;i<numbers.length;i++) numbers[i] = numbersList.get(i);
-		
-		//Sort values
+		double[] numbers = new double[numbersList.size()];
+		for (int i = 0; i < numbers.length; i++)
+			numbers[i] = numbersList.get(i);
+
+		// Sort values
 		long startTime;
 		long endTime;
-		if(algorithmClassName==null) {
+		if (algorithmClassName == null) {
 			startTime = System.currentTimeMillis();
 			Arrays.sort(numbers);
 			endTime = System.currentTimeMillis();
 		} else {
-			NumbersArraySorter sortAlgorithm = (NumbersArraySorter)Class.forName(algorithmClassName).newInstance();
+			NumbersArraySorter sortAlgorithm = (NumbersArraySorter) Class.forName(algorithmClassName).newInstance();
 			startTime = System.currentTimeMillis();
 			sortAlgorithm.sort(numbers);
 			endTime = System.currentTimeMillis();
 		}
-		
-		//Output answer
-		PrintStream out=null;
+
+		// Output answer
+		PrintStream out = null;
 		try {
 			out = new PrintStream(outFilename);
-			for(int i=0;i<numbers.length;i++) {
-				if(i>0 && (numbers[i]<numbers[i-1])) throw new RuntimeException("ERROR: Disorder detected at position "+i+" values: "+numbers[i-1]+","+numbers[i]);
+			for (int i = 0; i < numbers.length; i++) {
+				if (i > 0 && (numbers[i] < numbers[i - 1]))
+					throw new RuntimeException("ERROR: Disorder detected at position " + i + " values: "
+							+ numbers[i - 1] + "," + numbers[i]);
 				out.println(numbers[i]);
 			}
-		} finally{
-			if(out!=null) out.close();
+		} finally {
+			if (out != null)
+				out.close();
 		}
-		System.out.println("Numbers sorted. Total time(milliseconds): "+(endTime-startTime));
+		System.out.println("Numbers sorted. Total time(milliseconds): " + (endTime - startTime));
 	}
 }

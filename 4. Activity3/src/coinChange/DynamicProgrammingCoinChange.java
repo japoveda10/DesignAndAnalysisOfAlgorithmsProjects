@@ -7,10 +7,12 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 	//-------------------------------------------------------------------------
 	public static void main(String[] args)
 	{
+		DynamicProgrammingCoinChange program = new DynamicProgrammingCoinChange();
+		
 		int[] denominations = {1,2,3,4,5};
 		int totalValue = 103;
 		
-		int[] answer = calculateOptimalChange1(totalValue, denominations);
+		int[] answer = program.calculateOptimalChange(totalValue, denominations);
 		
 		for(int i: answer)
 		{
@@ -24,13 +26,6 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
-	{
-		int[] answer = new int[denominations.length];
-		
-		return answer;
-	}
-	
-	public static int[] calculateOptimalChange1(int totalValue, int[] denominations)
 	{
 		int[] answer = new int[denominations.length];
 		
@@ -56,7 +51,7 @@ public class DynamicProgrammingCoinChange implements CoinChangeCalculator
 						answer[i] += totalValue / denominations[i];
 						totalValue -= answer[i] * denominations[i];
 						
-						answer = calculateOptimalChange1(totalValue, denominations);
+						answer = calculateOptimalChange(totalValue, denominations);
 					}
 				}
 			}

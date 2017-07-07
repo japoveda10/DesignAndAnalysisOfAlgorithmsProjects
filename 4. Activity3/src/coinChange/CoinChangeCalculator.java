@@ -1,5 +1,8 @@
 package coinChange;
 
+/**
+ * CoinChangeCalculator interface
+ */
 public interface CoinChangeCalculator
 {
 	/**
