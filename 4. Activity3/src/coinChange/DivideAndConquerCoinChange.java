@@ -5,7 +5,9 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 	//-------------------------------------------------------------------------
 	// Attributes
 	//-------------------------------------------------------------------------
-	private static boolean answerCalculated = false;
+	private int[] denominationsArray;
+	
+	private int [] resultArray;
 	
 	//-------------------------------------------------------------------------
 	// Main
@@ -15,7 +17,7 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 		DivideAndConquerCoinChange program = new DivideAndConquerCoinChange();
 		
 		int[] array = {1,2,3,4,5};
-		int[] values = program.calculateOptimalChange(27, array);
+		int[] values = program.calculateOptimalChange(20, array);
 		
 		for(int i: values)
 		{
@@ -28,50 +30,43 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
+	{		
+		denominationsArray = denominations;
+		resultArray = new int[denominations.length];
+		
+		return divideAndConquer(denominations.length-1, totalValue);
+	}
+	
+	public int[] divideAndConquer(int pI, int pValue)
 	{
-		int[] answer = new int[denominations.length];
-		
-		//Greatest denomination of ordered array
-		int greater = denominations[denominations.length-1];
-		
-		int result = (totalValue / greater);
-		
-		if(totalValue == 0)
+		if(pValue == 0)
 		{
-			answerCalculated = true;
-			return answer;
+			return resultArray;
 		}
-		else if((result * greater) == totalValue)
+		else if(pI == 0)
 		{
-			answer[denominations.length-1] = (totalValue / greater);
-			answerCalculated = true;
+			resultArray[pI] = pValue;
 		}
 		else
-		{
-			int middle = denominations.length / 2;
-			int[] leftArray = new int[middle];
-			int[] rightArray = new int[middle];
-			
-			System.arraycopy(denominations, 0, leftArray, 0, leftArray.length);
-			System.arraycopy(denominations, leftArray.length, rightArray, 0, rightArray.length);
-			
-			int[] second = calculateOptimalChange(totalValue / 2, rightArray);
-			
-			//If to determine if it is necessary to revise first part of array
-			if(!answerCalculated)
+		{			
+			if(pValue < denominationsArray[pI])
 			{
-				int[] first = calculateOptimalChange(totalValue / 2, leftArray);
-				answerCalculated = true;
-				
-				System.arraycopy(first, 0, answer, 0, first.length);
-				System.arraycopy(second, 0, answer, first.length, second.length);
+				return divideAndConquer(pI-1, pValue);
 			}
 			else
 			{
-				System.arraycopy(second, 0, answer, answer.length / 2, second.length);
+				if(pValue % denominationsArray[pI] == 0)
+				{
+					resultArray[pI] = (pValue / denominationsArray[pI]);
+				}
+				else
+				{
+					resultArray[pI] = (pValue / denominationsArray[pI]);
+					return divideAndConquer(pI-1, pValue-(resultArray[pI]*denominationsArray[pI]));
+				}
 			}
 		}
-						
-		return answer;
+		
+		return resultArray;
 	}
 }
