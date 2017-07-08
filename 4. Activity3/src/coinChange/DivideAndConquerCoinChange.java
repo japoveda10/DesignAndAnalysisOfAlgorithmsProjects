@@ -1,29 +1,23 @@
 package coinChange;
 
+/**
+ * Divide and conquer algorithm that solves minimum coin change
+ * @author David Cortes and Julio Poveda
+ */
 public class DivideAndConquerCoinChange implements CoinChangeCalculator
 {
 	//-------------------------------------------------------------------------
 	// Attributes
 	//-------------------------------------------------------------------------
+	/**
+	 * Denominations array
+	 */
 	private int[] denominationsArray;
 	
+	/**
+	 * Result array
+	 */
 	private int [] resultArray;
-	
-	//-------------------------------------------------------------------------
-	// Main
-	//-------------------------------------------------------------------------
-	public static void main(String[] args)
-	{
-		DivideAndConquerCoinChange program = new DivideAndConquerCoinChange();
-		
-		int[] array = {1,2,3,4,5};
-		int[] values = program.calculateOptimalChange(20, array);
-		
-		for(int i: values)
-		{
-			System.out.println(i);
-		}
-	}
 	
 	//-------------------------------------------------------------------------
 	// Methods
@@ -39,22 +33,26 @@ public class DivideAndConquerCoinChange implements CoinChangeCalculator
 	
 	public int[] divideAndConquer(int pI, int pValue)
 	{
+		//Base case
 		if(pValue == 0)
 		{
 			return resultArray;
 		}
+		//Index corresponds to first position of denominations array
 		else if(pI == 0)
 		{
 			resultArray[pI] = pValue;
 		}
 		else
 		{			
+			//denomination pI greater than pValue
 			if(pValue < denominationsArray[pI])
 			{
 				return divideAndConquer(pI-1, pValue);
 			}
 			else
 			{
+				//denomination pI is multiple of pValue
 				if(pValue % denominationsArray[pI] == 0)
 				{
 					resultArray[pI] = (pValue / denominationsArray[pI]);

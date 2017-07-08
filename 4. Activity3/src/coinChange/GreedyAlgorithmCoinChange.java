@@ -1,34 +1,24 @@
 package coinChange;
 
+/**
+ * Greedy algorithm that solves minimum coin change
+ * @author David Cortes and Julio Poveda
+ */
 public class GreedyAlgorithmCoinChange implements CoinChangeCalculator
-{
-	//-------------------------------------------------------------------------
-	// Main
-	//-------------------------------------------------------------------------
-	public static void main(String[] args)
-	{
-		GreedyAlgorithmCoinChange program = new GreedyAlgorithmCoinChange();
-		int[] denominations = {1,2,3,4,5};
-		int totalValue = 103;
-		
-		int[] answer = program.calculateOptimalChange(totalValue, denominations);
-		
-		for(int i: answer)
-		{
-			System.out.println(i);
-		}
-	}
-	
+{	
 	//-------------------------------------------------------------------------
 	// Methods
 	//-------------------------------------------------------------------------
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations)
 	{
+		//Answer array
 		int[] answer = new int[denominations.length];
 		
+		//Iterate from greatest denomination backwards
 		for(int i = denominations.length-1; i<denominations.length && totalValue != 0; i--)
 		{
+			//denomination i is less than or equal to totalValue
 			if(denominations[i]<=totalValue)
 			{
 				answer[i] = totalValue / denominations[i];
