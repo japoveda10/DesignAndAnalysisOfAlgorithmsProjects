@@ -1,5 +1,6 @@
 # Activity 3 part 2: Minimum Coin Change
-This project has 3 solutions to the minimum coin change problem.<br>
+This project has 3 solutions to the minimum coin change problem.
+
 The main class is called `ExampleCoinChange`, it receives 3 parameters:
 - Name of the class with the algorithm to run
   - DivideAndConquerCoinChange
