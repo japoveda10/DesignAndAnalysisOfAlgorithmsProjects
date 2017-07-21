@@ -80,7 +80,7 @@ public class Main
 		//sequence2 String converted to array
 		for(int j = 0; j<sequence2.length(); j++)
 		{
-			sequence1OfChar[j] = sequence2.charAt(j);
+			sequence2OfChar[j] = sequence2.charAt(j);
 		}
 		
 		//Sequence with larger size is going to be sequence1OfChar
@@ -91,20 +91,15 @@ public class Main
 			sequence2OfChar = temp;
 		}
 		
-		int numberOfLines = 0;
+		//Matrix used for Dynamic Programming
+		int[][] matrix = new int[sequence1OfChar.length][sequence2OfChar.length];
 		
-		for(int i = 0; i<sequence1OfChar.length; i++)
+		//Matrix traversal
+		for(int i = 0; i<matrix.length; i++)
 		{
-			for(int j=0; j<sequence2OfChar.length; j++)
+			for(int j=0; j<matrix[0].length; j++)
 			{
-				if(sequence1OfChar[i] == sequence2OfChar[j])
-				{
-					//skip
-				}
-				else
-				{
-					 //sequence2OfChar[j] = "-"
-				}
+				//Initialize matrix
 			}
 		}
 	}
