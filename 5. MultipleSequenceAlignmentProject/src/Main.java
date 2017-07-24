@@ -13,11 +13,14 @@ public class Main
 	
 	public static void main(String[] args) throws Exception
 	{
-		System.out.println("-------------------------------------------------");
+		/*System.out.println("-------------------------------------------------");
 		System.out.println("Multiple Sequence Alignment Project");
 		System.out.println("-------------------------------------------------");
 		
-		//Read input file
+		//-------------------------------------------------------------------------
+		// Read input file
+		//-------------------------------------------------------------------------
+		
 		String fn ="";
 		if (args.length>0) fn=args[0];
 		else 
@@ -66,40 +69,101 @@ public class Main
 		else
 		{
 			System.out.println("Sequences are not equal");
-		}
+		}*/
 		
-		char[] sequence1OfChar = new char[sequence1.length()];
-		char[] sequence2OfChar = new char[sequence2.length()];
+		//-------------------------------------------------------------------------
+		// Sequences analysis
+		//-------------------------------------------------------------------------
 		
-		//sequence1 String converted to array
-		for(int i = 0; i<sequence1.length(); i++)
+		String sequence1 = "CCATTGACAA";
+		String sequence2 = "ACTGGAAT";
+		
+		//Sequence with larger size is going to be sequence1
+		if(sequence1.length() > sequence2.length())
 		{
-			sequence1OfChar[i] = sequence1.charAt(i);
-		}
-		
-		//sequence2 String converted to array
-		for(int j = 0; j<sequence2.length(); j++)
-		{
-			sequence2OfChar[j] = sequence2.charAt(j);
-		}
-		
-		//Sequence with larger size is going to be sequence1OfChar
-		if(sequence2OfChar.length > sequence1OfChar.length)
-		{
-			char[] temp = sequence1OfChar;
-			sequence1OfChar = sequence2OfChar;
-			sequence2OfChar = temp;
+			String temp = sequence1;
+			sequence1 = sequence2;
+			sequence2 = temp;
 		}
 		
 		//Matrix used for Dynamic Programming
-		int[][] matrix = new int[sequence1OfChar.length][sequence2OfChar.length];
+		int[][] matrix = new int[sequence1.length() + 1][sequence2.length() + 1];
 		
-		//Matrix traversal
-		for(int i = 0; i<matrix.length; i++)
+		//Penalties
+		int charMatch = 0;
+		int charMismatch = 1;
+		int gap = 2;
+		
+		for(int i = 1; i<=sequence1.length(); i++)
 		{
-			for(int j=0; j<matrix[0].length; j++)
+			matrix[i][0] = matrix[i-1][0] + gap;
+		}
+		
+		for(int j = 1; j<sequence2.length(); j++)
+		{
+			matrix[0][j] = matrix[0][j-1] + gap;
+		}
+		
+		for(int i = 1; i<=sequence1.length(); i++)
+		{
+			for(int j = 1; j<=sequence2.length(); j++)
 			{
-				//Initialize matrix
+				int penalty = 0;
+				
+				if(sequence1.charAt(i-1) == sequence2.charAt(j-1))
+				{
+					penalty = charMatch;
+				}
+				else
+				{
+					penalty = charMismatch;
+				}
+				
+				int comingFromDiagonalScore = matrix[i-1][j-1] + penalty;
+				
+				int comingFromLeftScore = matrix[i][j-1] + gap;
+				
+				int comingFromUpScore = matrix[i-1][j] + gap;
+				
+				matrix[i][j] = Math.min(Math.min(comingFromDiagonalScore, comingFromLeftScore), comingFromUpScore);
+			}
+		}
+		
+		for (int i = 0; i <= sequence1.length(); i++) {
+		    for (int j = 0; j <= sequence2.length(); j++)
+		        System.out.print(matrix[i][j] + "\t");
+		    System.out.println();
+		}
+		
+		//Traceback
+		int i = sequence1.length();
+		int j = sequence2.length();
+		boolean finish = false;
+		
+		System.out.print(matrix[i][j]);
+		System.out.println();
+		
+		while(i > 0 && j > 00)
+		{
+			if(matrix[i-1][j-1] < matrix[i-1][j] && matrix[i-1][j-1] < matrix[i][j-1])
+			{
+				//there is no displacement
+				System.out.println(matrix[i-1][j-1]);
+				i = i-1;
+				j = j-1;
+				finish = true;
+			}
+			else if(matrix[i-1][j] < matrix[i-1][j-1] && matrix[i-1][j] < matrix[i][j-1])
+			{
+				//horizontal sequence displacement
+				System.out.println(matrix[i-1][j]);
+				i = i-1;
+			}
+			else
+			{
+				//vertical sequence displacement
+				System.out.println(matrix[i][j-1]);
+				j = j-1;
 			}
 		}
 	}
