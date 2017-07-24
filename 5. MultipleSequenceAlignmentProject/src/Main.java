@@ -129,10 +129,14 @@ public class Main
 			}
 		}
 		
-		for (int i = 0; i <= sequence1.length(); i++) {
-		    for (int j = 0; j <= sequence2.length(); j++)
-		        System.out.print(matrix[i][j] + "\t");
-		    System.out.println();
+		for (int i = 0; i <= sequence1.length(); i++)
+		{
+			for (int j = 0; j <= sequence2.length(); j++)
+			{
+				System.out.print(matrix[i][j] + "\t");
+			}
+			
+			System.out.println();
 		}
 		
 		//Traceback
@@ -143,7 +147,7 @@ public class Main
 		System.out.print(matrix[i][j]);
 		System.out.println();
 		
-		while(i > 0 && j > 00)
+		while(i > 0 && j > 0)
 		{
 			if(matrix[i-1][j-1] < matrix[i-1][j] && matrix[i-1][j-1] < matrix[i][j-1])
 			{
