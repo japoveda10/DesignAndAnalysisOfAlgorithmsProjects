@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Fasta sequence class
+ * Read Fasta File class
  * Built based on http://www.cs.utexas.edu/~mobios/cs329e/rosetta/src/FastaSequence.java
  * @author David Cortes and Julio Poveda
  */
-public final class FastaSequence
+public final class ReadFastaFile
 {
 	//-----------------------------------------------------------
 	// Attributes
@@ -21,11 +21,15 @@ public final class FastaSequence
 	
 	private String[] sequence;
 	
+	private String sequence1;
+	
+	private String sequence2;
+	
 	//-----------------------------------------------------------
 	// Constructor
 	//-----------------------------------------------------------
 	
-	public FastaSequence(String pFile)
+	public ReadFastaFile(String pFile)
 	{
 		fileName = pFile;
 		readSequence();
@@ -83,6 +87,28 @@ public final class FastaSequence
 			description[i]=(String) desc.get(i);
 			sequence[i]=(String) seq.get(i);
 		}
+		
+		int numberOfSequences = 0;
+		
+		for (int i=0; i< this.size(); i++)
+		{
+			System.out.println("One sequence read from file with length " + this.getSequence().length() );
+			System.out.println("description: \n"+ this.getDescription(i));
+			System.out.println("Sequence: \n"+ this.getSequence(i));
+			
+			if(i == 0)
+			{
+				sequence1 = this.getSequence(i);
+			}
+			else if(i == 32)
+			{
+				sequence2 = this.getSequence(i);
+			}
+			
+			numberOfSequences++;
+		}
+		
+		System.out.println("Total number of sequences: " + numberOfSequences);
 	}
 	
 	/**
@@ -126,5 +152,15 @@ public final class FastaSequence
 	public int size()
 	{
 		return sequence.length;
+	}
+	
+	public String getSequence1()
+	{
+		return sequence1;
+	}
+	
+	public String getSequence2()
+	{
+		return sequence2;
 	}
 }
