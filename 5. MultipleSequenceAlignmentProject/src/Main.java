@@ -1,4 +1,3 @@
-import java.io.*;
 
 /**
  * Main class of Multiple Sequence Alignment Project
@@ -139,10 +138,14 @@ public class Main
 			System.out.println();
 		}
 		
-		//Traceback
+		//-------------------------------------------------------------------------
+		// Traceback
+		//-------------------------------------------------------------------------
 		int i = sequence1.length();
 		int j = sequence2.length();
-		boolean finish = false;
+		
+		String newSequence1 = sequence1;
+		String newSequence2 = sequence2;
 		
 		System.out.print(matrix[i][j]);
 		System.out.println();
@@ -155,20 +158,25 @@ public class Main
 				System.out.println(matrix[i-1][j-1]);
 				i = i-1;
 				j = j-1;
-				finish = true;
 			}
 			else if(matrix[i-1][j] < matrix[i-1][j-1] && matrix[i-1][j] < matrix[i][j-1])
 			{
 				//horizontal sequence displacement
 				System.out.println(matrix[i-1][j]);
+				newSequence1 += "-";
 				i = i-1;
 			}
 			else
 			{
 				//vertical sequence displacement
 				System.out.println(matrix[i][j-1]);
+				newSequence2 += "-";
 				j = j-1;
 			}
 		}
+		
+		System.out.println("");
+		System.out.println(newSequence1);
+		System.out.println(newSequence2);
 	}
 }
