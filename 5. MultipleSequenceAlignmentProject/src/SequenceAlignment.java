@@ -59,7 +59,7 @@ public class SequenceAlignment
 			matrix[i][0] = matrix[i-1][0] + GAP;
 		}
 		
-		for(int j = 1; j<sequence2.length(); j++)
+		for(int j = 1; j<=sequence2.length(); j++)
 		{
 			matrix[0][j] = matrix[0][j-1] + GAP;
 		}
@@ -109,13 +109,13 @@ public class SequenceAlignment
 		
 		while(i > 0 && j > 0)
 		{
-			if(matrix[i-1][j-1] < matrix[i-1][j] && matrix[i-1][j-1] < matrix[i][j-1])
+			if(matrix[i-1][j-1] + penalty < matrix[i-1][j] + GAP && matrix[i-1][j-1] + penalty < matrix[i][j-1] + GAP)
 			{
 				//there is no displacement
 				System.out.println(matrix[i-1][j-1]);
 				
 				newSequence1 += sequence1.charAt(i-1);
-				newSequence2 += sequence2.charAt(i-1);
+				newSequence2 += sequence2.charAt(j-1);
 				
 				i = i-1;
 				j = j-1;
