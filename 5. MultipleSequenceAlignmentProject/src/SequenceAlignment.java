@@ -109,7 +109,7 @@ public class SequenceAlignment
 		
 		while(i > 0 && j > 0)
 		{
-			if(matrix[i-1][j-1] + penalty < matrix[i-1][j] + GAP && matrix[i-1][j-1] + penalty < matrix[i][j-1] + GAP)
+			if(matrix[i-1][j-1] + penalty <= matrix[i-1][j] + GAP && matrix[i-1][j-1] + penalty <= matrix[i][j-1] + GAP)
 			{
 				//there is no displacement
 				System.out.println(matrix[i-1][j-1]);
@@ -127,7 +127,7 @@ public class SequenceAlignment
 				newSequence1 += "-";
 				i = i-1;
 			}
-			else
+			else if(matrix[i][j-1] + GAP < matrix[i-1][j-1] + penalty && matrix[i][j-1] + GAP < matrix[i-1][j] + GAP)
 			{
 				//vertical sequence displacement
 				System.out.println(matrix[i][j-1]);
