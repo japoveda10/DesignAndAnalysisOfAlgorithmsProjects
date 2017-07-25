@@ -124,20 +124,22 @@ public class SequenceAlignment
 			{
 				//horizontal sequence displacement
 				System.out.println(matrix[i-1][j]);
-				newSequence1 += "-";
+				newSequence2 += "-";
+				newSequence1 += sequence1.charAt(i-1);
 				i = i-1;
 			}
 			else if(matrix[i][j-1] + GAP < matrix[i-1][j-1] + penalty && matrix[i][j-1] + GAP < matrix[i-1][j] + GAP)
 			{
 				//vertical sequence displacement
 				System.out.println(matrix[i][j-1]);
-				newSequence2 += "-";
+				newSequence1 += "-";
+				newSequence2 += sequence1.charAt(i-1);
 				j = j-1;
 			}
 		}
 		
-		System.out.println("");
-		System.out.println(newSequence1);
-		System.out.println(newSequence2);
+		System.out.println("");		
+		System.out.println(new StringBuilder(newSequence1).reverse().toString());
+		System.out.println(new StringBuilder(newSequence2).reverse().toString());
 	}
 }
