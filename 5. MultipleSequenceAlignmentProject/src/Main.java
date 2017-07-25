@@ -19,8 +19,8 @@ public class Main
 		//Read input file
 		ReadFastaFile fastaFile = new ReadFastaFile(args[0]);
 		
-		String sequence1 = "CCATTGACAA";
-		String sequence2 = "ACTGGAAT";
+		String sequence1 = "AGGCAGCGACGTGCGTCATCGGTCG";
+		String sequence2 = "AGGCTGACGTCGGTCAGAATCCGTCG";
 		
 		//Align sequences
 		SequenceAlignment alignSequences = new SequenceAlignment(sequence1, sequence2);
