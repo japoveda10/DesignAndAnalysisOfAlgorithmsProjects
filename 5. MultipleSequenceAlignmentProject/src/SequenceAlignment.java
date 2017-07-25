@@ -2,6 +2,10 @@
 public class SequenceAlignment
 {
 	
+	//-----------------------------------------------------------
+	// Constants
+	//-----------------------------------------------------------
+	
 	/**
 	 * Char match penalty
 	 */
@@ -17,11 +21,19 @@ public class SequenceAlignment
 	 */
 	private final static int GAP = 2;
 	
+	//-----------------------------------------------------------
+	// Attributes
+	//-----------------------------------------------------------
+	
 	private String sequence1;
 	
 	private String sequence2;
 	
 	private int penalty;
+	
+	//-----------------------------------------------------------
+	// Constructors
+	//-----------------------------------------------------------
 	
 	public SequenceAlignment(String pSequence1, String pSequence2)
 	{
@@ -32,6 +44,10 @@ public class SequenceAlignment
 		
 		alignSequences();
 	}
+	
+	//-----------------------------------------------------------
+	// Methods
+	//-----------------------------------------------------------
 	
 	public void alignSequences()
 	{

@@ -26,7 +26,7 @@ public final class ReadFastaFile
 	private String sequence2;
 	
 	//-----------------------------------------------------------
-	// Constructor
+	// Constructors
 	//-----------------------------------------------------------
 	
 	public ReadFastaFile(String pFile)
