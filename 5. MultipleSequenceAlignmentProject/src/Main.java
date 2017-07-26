@@ -22,6 +22,9 @@ public class Main
 		String sequence1 = "CCATTGACAA";
 		String sequence2 = "ACTGGAAT";
 		
+		String sequence1Description = fastaFile.getDescription();
+		String sequence2Description = fastaFile.getDescription(1);
+		
 		//Sequences alignment
 		SequenceAlignment alignSequences = new SequenceAlignment(sequence1, sequence2);
 		
@@ -29,6 +32,6 @@ public class Main
 		String newSequence2 = alignSequences.getNewSequence2();
 		
 		//Writes aligned sequences in output file
-		WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence2, newSequence1, newSequence2);
+		WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence1Description, sequence2, sequence2Description, newSequence1, newSequence2);
 	}
 }

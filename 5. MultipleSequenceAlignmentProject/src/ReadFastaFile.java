@@ -21,10 +21,6 @@ public final class ReadFastaFile
 	
 	private String[] sequence;
 	
-	private String sequence1;
-	
-	private String sequence2;
-	
 	//-----------------------------------------------------------
 	// Constructors
 	//-----------------------------------------------------------
@@ -96,15 +92,6 @@ public final class ReadFastaFile
 			System.out.println("description: \n"+ this.getDescription(i));
 			System.out.println("Sequence: \n"+ this.getSequence(i));
 			
-			if(i == 0)
-			{
-				sequence1 = this.getSequence(i);
-			}
-			else if(i == 32)
-			{
-				sequence2 = this.getSequence(i);
-			}
-			
 			numberOfSequences++;
 		}
 		
@@ -152,15 +139,5 @@ public final class ReadFastaFile
 	public int size()
 	{
 		return sequence.length;
-	}
-	
-	public String getSequence1()
-	{
-		return sequence1;
-	}
-	
-	public String getSequence2()
-	{
-		return sequence2;
 	}
 }

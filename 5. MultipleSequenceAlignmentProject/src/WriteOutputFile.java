@@ -14,7 +14,11 @@ public class WriteOutputFile
 	
 	private String originalSequence1;
 	
+	private String descriptionSequence1;
+	
 	private String originalSequence2;
+	
+	private String descriptionSequence2;
 	
 	private String newSequence1;
 	
@@ -24,24 +28,26 @@ public class WriteOutputFile
 	// Constructors
 	//-----------------------------------------------------------
 	
-	public WriteOutputFile(String pOriginalSequence1, String pOriginalSequence2, String pNewSequence1, String pNewSequence2)
+	public WriteOutputFile(String pOriginalSequence1, String pDescriptionSequence1, String pOriginalSequence2, String pDescriptionSequence2, String pNewSequence1, String pNewSequence2)
 	{
 		originalSequence1 = pOriginalSequence1;
+		descriptionSequence1 = pDescriptionSequence1;
 		originalSequence2 = pOriginalSequence2;
+		descriptionSequence2 = pDescriptionSequence2;
 		newSequence1 = pNewSequence1;
 		newSequence2 = pNewSequence2;
 		
 		BufferedWriter writer = null;
 		try
 		{
-			File file = new File("data/outputFile.txt");
+			File file = new File("data/outputFile.fa");
 			writer = new BufferedWriter(new FileWriter(file));
 			
-			writer.write("New sequence 1:");
+			writer.write(descriptionSequence1);
 			writer.newLine();
 			writer.write(newSequence1);
 			writer.newLine();
-			writer.write("New sequence 2:");
+			writer.write(descriptionSequence2);
 			writer.newLine();
 			writer.write(newSequence2);
 		}
