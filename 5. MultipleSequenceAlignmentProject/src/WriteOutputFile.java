@@ -12,16 +12,34 @@ public class WriteOutputFile
 	// Attributes
 	//-----------------------------------------------------------
 	
+	/**
+	 * Original sequence 1
+	 */
 	private String originalSequence1;
 	
+	/**
+	 * Description of originalSequence1
+	 */
 	private String descriptionSequence1;
 	
+	/**
+	 * Original sequence 2
+	 */
 	private String originalSequence2;
 	
+	/**
+	 * Description of originalSequence2
+	 */
 	private String descriptionSequence2;
 	
+	/**
+	 * Aligned originalSequence1
+	 */
 	private String newSequence1;
 	
+	/**
+	 * Aligned originalSequence2
+	 */
 	private String newSequence2;
 	
 	//-----------------------------------------------------------

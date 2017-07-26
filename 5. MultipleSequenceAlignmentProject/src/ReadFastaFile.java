@@ -15,10 +15,19 @@ public final class ReadFastaFile
 	// Attributes
 	//-----------------------------------------------------------
 	
+	/**
+	 * File name
+	 */
 	private String fileName;
 	
+	/**
+	 * Descriptions array
+	 */
 	private String[] description;
 	
+	/**
+	 * Sequences array
+	 */
 	private String[] sequence;
 	
 	//-----------------------------------------------------------
@@ -35,6 +44,9 @@ public final class ReadFastaFile
 	// Methods
 	//-----------------------------------------------------------
 	
+	/**
+	 * Reads Fasta file
+	 */
 	public void readSequence()
 	{
 		List desc= new ArrayList();
@@ -117,7 +129,7 @@ public final class ReadFastaFile
 	}
 	
 	/**
-	 * Returns sequence as a String
+	 * Returns i sequence as a String
 	 * @param i sequence index
 	 * @return sequence[i]
 	 */
@@ -127,7 +139,7 @@ public final class ReadFastaFile
 	}
 	
 	/**
-	 * Returns description as a String
+	 * Returns i description as a String
 	 * @param i description index
 	 * @return description[i]
 	 */
@@ -136,6 +148,10 @@ public final class ReadFastaFile
 		return description[i];
 	}
 	
+	/**
+	 * Returns sequence array size
+	 * @return sequence.length
+	 */
 	public int size()
 	{
 		return sequence.length;

@@ -28,14 +28,29 @@ public class SequenceAlignment
 	// Attributes
 	//-----------------------------------------------------------
 	
+	/**
+	 * Original sequence 1
+	 */
 	private String sequence1;
 	
+	/**
+	 * Original sequence 2
+	 */
 	private String sequence2;
 	
+	/**
+	 * Penalty
+	 */
 	private int penalty;
 	
+	/**
+	 * Aligned sequence 1
+	 */
 	private String newSequence1;
 	
+	/**
+	 * Aligned sequence 2
+	 */
 	private String newSequence2;
 	
 	//-----------------------------------------------------------
@@ -58,6 +73,9 @@ public class SequenceAlignment
 	// Methods
 	//-----------------------------------------------------------
 	
+	/**
+	 * Align sequences
+	 */
 	public void alignSequences()
 	{
 		//Matrix used for Dynamic Programming
@@ -73,6 +91,7 @@ public class SequenceAlignment
 			matrix[0][j] = matrix[0][j-1] + GAP;
 		}
 		
+		//Nested loops to fill matrix with scores
 		for(int i = 1; i<=sequence1.length(); i++)
 		{
 			for(int j = 1; j<=sequence2.length(); j++)
@@ -92,10 +111,12 @@ public class SequenceAlignment
 				
 				int comingFromUpScore = matrix[i-1][j] + GAP;
 				
+				//matrix[i][j] will store the smallest score
 				matrix[i][j] = Math.min(Math.min(comingFromDiagonalScore, comingFromLeftScore), comingFromUpScore);
 			}
 		}
 		
+		//Prints score-filled matrix
 		for (int i = 0; i <= sequence1.length(); i++)
 		{
 			for (int j = 0; j <= sequence2.length(); j++)
@@ -148,11 +169,19 @@ public class SequenceAlignment
 		System.out.println(new StringBuilder(newSequence2).reverse().toString());
 	}
 	
+	/**
+	 * Returns aligned sequence 1
+	 * @return newSequence1 but in reverse
+	 */
 	public String getNewSequence1()
 	{
 		return new StringBuilder(newSequence1).reverse().toString();
 	}
 	
+	/**
+	 * Returns aligned sequence 2
+	 * @return newSequence2 but in reverse
+	 */
 	public String getNewSequence2()
 	{
 		return new StringBuilder(newSequence2).reverse().toString();
