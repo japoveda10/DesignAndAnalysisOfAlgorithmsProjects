@@ -22,13 +22,13 @@ public class Main
 		String sequence1 = "CCATTGACAA";
 		String sequence2 = "ACTGGAAT";
 		
-		//Align sequences
+		//Sequences alignment
 		SequenceAlignment alignSequences = new SequenceAlignment(sequence1, sequence2);
 		
 		String newSequence1 = alignSequences.getNewSequence1();
 		String newSequence2 = alignSequences.getNewSequence2();
 		
-		//Writes sequences aligned in output file
+		//Writes aligned sequences in output file
 		WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence2, newSequence1, newSequence2);
 	}
 }
