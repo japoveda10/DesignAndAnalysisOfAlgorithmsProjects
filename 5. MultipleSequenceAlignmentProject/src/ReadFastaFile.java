@@ -108,6 +108,7 @@ public final class ReadFastaFile
 		}
 		
 		System.out.println("Total number of sequences: " + numberOfSequences);
+		System.out.println();
 	}
 	
 	/**

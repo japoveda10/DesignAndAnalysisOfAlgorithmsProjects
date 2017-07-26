@@ -59,7 +59,7 @@ public class WriteOutputFile
 		try
 		{
 			File file = new File("data/outputFile.fa");
-			writer = new BufferedWriter(new FileWriter(file));
+			writer = new BufferedWriter(new FileWriter(file,true));
 			
 			writer.write(descriptionSequence1);
 			writer.newLine();

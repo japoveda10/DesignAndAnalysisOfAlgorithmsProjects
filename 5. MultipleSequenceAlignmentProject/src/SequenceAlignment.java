@@ -116,6 +116,10 @@ public class SequenceAlignment
 			}
 		}
 		
+		System.out.println();
+		System.out.println("Score-filled matrix");
+		System.out.println();
+		
 		//Prints score-filled matrix
 		for (int i = 0; i <= sequence1.length(); i++)
 		{
@@ -130,6 +134,10 @@ public class SequenceAlignment
 		// Traceback
 		int i = sequence1.length();
 		int j = sequence2.length();
+		
+		System.out.println();
+		System.out.println("Traceback");
+		System.out.println();
 		
 		System.out.print(matrix[i][j]);
 		System.out.println();
@@ -165,6 +173,9 @@ public class SequenceAlignment
 			}
 		}
 		
+		System.out.println();
+		System.out.println("Aligned sequences");
+		System.out.println();
 		System.out.println(new StringBuilder(newSequence1).reverse().toString());
 		System.out.println(new StringBuilder(newSequence2).reverse().toString());
 	}
