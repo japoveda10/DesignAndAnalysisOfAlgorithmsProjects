@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Read Fasta File class
+ * Reads Fasta file
  * Built based on http://www.cs.utexas.edu/~mobios/cs329e/rosetta/src/FastaSequence.java
  * @author David Cortes and Julio Poveda
  */

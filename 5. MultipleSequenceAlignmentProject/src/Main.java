@@ -16,13 +16,19 @@ public class Main
 		System.out.println("Multiple Sequence Alignment Project");
 		System.out.println("-------------------------------------------------");
 		
-		//Read input file
+		//Reads input file
 		ReadFastaFile fastaFile = new ReadFastaFile(args[0]);
 		
-		String sequence1 = "AGGCAGCGACGTGCGTCATCGGTCG";
-		String sequence2 = "AGGCTGACGTCGGTCAGAATCCGTCG";
+		String sequence1 = "CCATTGACAA";
+		String sequence2 = "ACTGGAAT";
 		
 		//Align sequences
 		SequenceAlignment alignSequences = new SequenceAlignment(sequence1, sequence2);
+		
+		String newSequence1 = alignSequences.getNewSequence1();
+		String newSequence2 = alignSequences.getNewSequence2();
+		
+		//Writes sequences aligned in output file
+		WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence2, newSequence1, newSequence2);
 	}
 }
