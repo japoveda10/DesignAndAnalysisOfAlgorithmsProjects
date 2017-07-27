@@ -62,12 +62,13 @@ public class WriteOutputFile
 			writer = new BufferedWriter(new FileWriter(file,true));
 			
 			writer.write(descriptionSequence1);
-			writer.newLine();
+			writer.write("\n");
 			writer.write(newSequence1);
-			writer.newLine();
+			writer.write("\n");
 			writer.write(descriptionSequence2);
-			writer.newLine();
+			writer.write("\n");
 			writer.write(newSequence2);
+			writer.write("\n");
 		}
 		catch (Exception e)
 		{

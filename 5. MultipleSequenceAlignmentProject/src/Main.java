@@ -1,8 +1,6 @@
-import java.util.ArrayList;
 
 /**
  * Main class of Multiple Sequence Alignment Project
- * For reading Fasta file, we based on http://www.cs.utexas.edu/~mobios/cs329e/rosetta/src/FastaSequence.java
  * @author David Cortes and Julio Poveda
  */
 public class Main
@@ -17,68 +15,44 @@ public class Main
 		System.out.println("Multiple Sequence Alignment Project");
 		System.out.println("-------------------------------------------------");
 		
-		//Reads input file
-		ReadFastaFile fastaFile = new ReadFastaFile(args[0]);
+		//args[0] is file name
+		String fileName = args[0];
 		
-		String sequence1 = "CCATTGACAA";
-		String sequence2 = "ACTGGAAT";
-		String sequence3 = "CAGTGC";
-		String sequence4 = "GAATTTC";
+		//args[1] is the number to decide if program aligns default or input sequences
+		int number = Integer.parseInt(args[1]);
 		
-		ArrayList<String> sequences = new ArrayList<String>();
-		sequences.add(sequence1);
-		sequences.add(sequence2);
-		sequences.add(sequence3);
-		sequences.add(sequence4);
-		
-		ArrayList<String> newSequences = new ArrayList<String>();
-		
-		SequenceAlignment alignSequences = null;
-		int j = 1;
-		
-		System.out.println("2. Sequences alignment");
-		System.out.println();
-		
-		for(int i = 0; i<sequences.size() && j<sequences.size(); i++)
+		if(number == 0)
 		{
-			System.out.println("------------------------------------------------");
-			System.out.println("Comparing sequence " + i + " and sequence " + j);
-			System.out.println("------------------------------------------------");
+			//Default sequences
 			
-			if(i == 0 && j == 1)
+			//Aligns default sequences
+			RunDefaultSequences defaultSequences = new RunDefaultSequences();
+			
+			//Writes in console aligned sequences
+			for(int i = 0; i<defaultSequences.getNewSequencesSize(); i++)
 			{
-				alignSequences = new SequenceAlignment(sequences.get(i), sequences.get(j));
+				System.out.println(defaultSequences.getNewSequence(i));
 			}
-			else
-			{
-				alignSequences = new SequenceAlignment(newSequences.get(i), sequences.get(j));
-			}
-			
-			System.out.println();
-			String newSequence1 = alignSequences.getNewSequence1();
-			String newSequence2 = alignSequences.getNewSequence2();
-			
-			if(i > 0)
-			{
-				newSequences.add(newSequence2);
-			}
-			else
-			{
-				newSequences.add(newSequence1);
-				newSequences.add(newSequence2);
-			}
-			
-			String sequence1Description = fastaFile.getDescription(i);
-			String sequence2Description = fastaFile.getDescription(j);
-			
-			//Writes aligned sequences in output file
-			WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence1Description, sequence2, sequence2Description, newSequence1, newSequence2);
-			j++;
 		}
-		
-		for(int i = 0; i<newSequences.size(); i++)
+		else if(number == 1)
 		{
-			System.out.println(newSequences.get(i));
+			//Input sequences
+			
+			//Reads input file
+			RunInputFileSequences inputFileSequences = new RunInputFileSequences(fileName);
+			
+			//Aligns input file sequences
+			inputFileSequences.alignSequences();
+			
+			//Writes in console aligned sequences
+			for(int i = 0; i<inputFileSequences.getNewSequencesSize(); i++)
+			{
+				System.out.println(inputFileSequences.getNewSequence(i));
+			}
+		}
+		else
+		{
+			System.out.println("Type a valid number");
 		}
 	}
 }
