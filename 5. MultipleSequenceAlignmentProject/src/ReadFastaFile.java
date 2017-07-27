@@ -98,6 +98,10 @@ public final class ReadFastaFile
 		
 		int numberOfSequences = 0;
 		
+		System.out.println();
+		System.out.println("1. Sequences");
+		System.out.println();
+		
 		for (int i=0; i< this.size(); i++)
 		{
 			System.out.println("One sequence read from file with length " + this.getSequence().length() );

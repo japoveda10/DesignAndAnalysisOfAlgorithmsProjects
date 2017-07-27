@@ -142,34 +142,71 @@ public class SequenceAlignment
 		System.out.print(matrix[i][j]);
 		System.out.println();
 		
-		while(i > 0 && j > 0)
+		while(i >= 0 && j >= 0 && matrix[i][j] != 0)
 		{
-			if(matrix[i-1][j-1] + penalty <= matrix[i-1][j] + GAP && matrix[i-1][j-1] + penalty <= matrix[i][j-1] + GAP)
-			{
-				//there is no displacement
-				System.out.println(matrix[i-1][j-1]);
-				
-				newSequence1 += sequence1.charAt(i-1);
-				newSequence2 += sequence2.charAt(j-1);
-				
-				i = i-1;
-				j = j-1;
-			}
-			else if(matrix[i-1][j] + GAP < matrix[i-1][j-1] + penalty && matrix[i-1][j] + GAP < matrix[i][j-1] + GAP)
-			{
-				System.out.println(matrix[i-1][j]);
-				
-				newSequence2 += "-";
-				newSequence1 += sequence1.charAt(i-1);
-				i = i-1;
-			}
-			else if(matrix[i][j-1] + GAP < matrix[i-1][j-1] + penalty && matrix[i][j-1] + GAP < matrix[i-1][j] + GAP)
+			if(i == 0)
 			{
 				System.out.println(matrix[i][j-1]);
 				
 				newSequence1 += "-";
-				newSequence2 += sequence1.charAt(i-1);
-				j = j-1;
+				
+				if(sequence2.length() == newSequence2.length())
+				{
+					newSequence2 += sequence1.charAt(j-1);
+					j = j-1;
+				}
+				else
+				{
+					newSequence2 += "-";
+					j = j-1;
+				}
+			}
+			else if(j == 0)
+			{
+				System.out.println(matrix[i-1][j]);
+				
+				newSequence2 += "-";
+				
+				if(sequence1.length() == newSequence2.length())
+				{
+					newSequence1 += sequence2.charAt(i-1);
+					i = i-1;
+				}
+				else
+				{
+					newSequence1 += "-";
+				}
+				
+			}
+			else
+			{
+				if(matrix[i-1][j-1] + penalty <= matrix[i-1][j] + GAP && matrix[i-1][j-1] + penalty <= matrix[i][j-1] + GAP)
+				{
+					//there is no displacement
+					System.out.println(matrix[i-1][j-1]);
+					
+					newSequence1 += sequence1.charAt(i-1);
+					newSequence2 += sequence2.charAt(j-1);
+					
+					i = i-1;
+					j = j-1;
+				}
+				else if(matrix[i-1][j] + GAP < matrix[i-1][j-1] + penalty && matrix[i-1][j] + GAP < matrix[i][j-1] + GAP)
+				{
+					System.out.println(matrix[i-1][j]);
+					
+					newSequence2 += "-";
+					newSequence1 += sequence1.charAt(i-1);
+					i = i-1;
+				}
+				else if(matrix[i][j-1] + GAP < matrix[i-1][j-1] + penalty && matrix[i][j-1] + GAP < matrix[i-1][j] + GAP)
+				{
+					System.out.println(matrix[i][j-1]);
+					
+					newSequence1 += "-";
+					newSequence2 += sequence1.charAt(j-1);
+					j = j-1;
+				}
 			}
 		}
 		

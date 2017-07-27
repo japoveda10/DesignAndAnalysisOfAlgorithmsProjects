@@ -36,18 +36,34 @@ public class Main
 		sequences.add(sequence3);
 		sequences.add(sequence4);
 		
+		ArrayList<String> newSequences = new ArrayList<String>();
+		
 		SequenceAlignment alignSequences = null;
 		int j = 1;
+		
+		System.out.println("2. Sequences alignment");
+		System.out.println();
 		
 		for(int i = 0; i<sequences.size() && j<sequences.size(); i++)
 		{
 			System.out.println("------------------------------------------------");
 			System.out.println("Comparing sequence " + i + " and sequence " + j);
 			System.out.println("------------------------------------------------");
-			alignSequences = new SequenceAlignment(sequences.get(i), sequences.get(j));
+			if(i == 0 && j == 1)
+			{
+				alignSequences = new SequenceAlignment(sequences.get(i), sequences.get(j));
+			}
+			else
+			{
+				alignSequences = new SequenceAlignment(newSequences.get(i), sequences.get(j));
+			}
+			
 			System.out.println();
 			String newSequence1 = alignSequences.getNewSequence1();
 			String newSequence2 = alignSequences.getNewSequence2();
+			newSequences.add(newSequence1);
+			newSequences.add(newSequence2);
+			
 			
 			//Writes aligned sequences in output file
 			WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence1Description, sequence2, sequence2Description, newSequence1, newSequence2);
