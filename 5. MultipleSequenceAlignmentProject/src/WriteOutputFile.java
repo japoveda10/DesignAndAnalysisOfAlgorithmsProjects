@@ -46,6 +46,15 @@ public class WriteOutputFile
 	// Constructors
 	//-----------------------------------------------------------
 	
+	/**
+	 * WriteOutputFile constructor
+	 * @param pOriginalSequence1 First sequence
+	 * @param pDescriptionSequence1 First sequence description
+	 * @param pOriginalSequence2 Second sequence
+	 * @param pDescriptionSequence2 Second sequence description
+	 * @param pNewSequence1 First sequence aligned
+	 * @param pNewSequence2 Second sequence aligned
+	 */
 	public WriteOutputFile(String pOriginalSequence1, String pDescriptionSequence1, String pOriginalSequence2, String pDescriptionSequence2, String pNewSequence1, String pNewSequence2)
 	{
 		originalSequence1 = pOriginalSequence1;

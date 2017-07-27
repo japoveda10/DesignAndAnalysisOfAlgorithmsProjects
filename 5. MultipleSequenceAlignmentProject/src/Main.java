@@ -28,6 +28,9 @@ public class Main
 			//Aligns default sequences
 			RunDefaultSequences defaultSequences = new RunDefaultSequences();
 			
+			System.out.println("Multiple Aligned Sequences");
+			System.out.println();
+			
 			//Writes in console aligned sequences
 			for(int i = 0; i<defaultSequences.getNewSequencesSize(); i++)
 			{
@@ -43,6 +46,9 @@ public class Main
 			
 			//Aligns input file sequences
 			inputFileSequences.alignSequences();
+			
+			System.out.println("Multiple Aligned Sequences");
+			System.out.println();
 			
 			//Writes in console aligned sequences
 			for(int i = 0; i<inputFileSequences.getNewSequencesSize(); i++)

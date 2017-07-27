@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Runs default sequences alignment
+ * Runs program for default sequences alignment
  * @author David Cortes and Julio Poveda
  */
 public class RunDefaultSequences
@@ -66,6 +66,7 @@ public class RunDefaultSequences
 		
 		int j = 1;
 		
+		System.out.println();
 		System.out.println("2. Sequences alignment");
 		System.out.println();
 		
@@ -123,7 +124,7 @@ public class RunDefaultSequences
 	}
 	
 	/**
-	 * Returns aligned sequences in pI position
+	 * Returns aligned sequence in pI position
 	 * @param pI Index of sequence
 	 * @return newSequences.get(pI)
 	 */

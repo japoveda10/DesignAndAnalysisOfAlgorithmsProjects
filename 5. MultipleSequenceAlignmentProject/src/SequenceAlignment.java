@@ -57,6 +57,11 @@ public class SequenceAlignment
 	// Constructors
 	//-----------------------------------------------------------
 	
+	/**
+	 * SequenceAlignment constructor
+	 * @param pSequence1 First sequence to align
+	 * @param pSequence2 Second sequence to align
+	 */
 	public SequenceAlignment(String pSequence1, String pSequence2)
 	{
 		sequence1 = pSequence1;
@@ -215,6 +220,7 @@ public class SequenceAlignment
 		System.out.println();
 		System.out.println(new StringBuilder(newSequence1).reverse().toString());
 		System.out.println(new StringBuilder(newSequence2).reverse().toString());
+		System.out.println();
 	}
 	
 	/**

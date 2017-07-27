@@ -1,15 +1,43 @@
 import java.util.ArrayList;
 
+/**
+ * Runs programs for input file sequences alignment
+ * @author David Cortes and Julio Poveda
+ */
 public class RunInputFileSequences
 {
+	//-----------------------------------------------------------
+	// Attributes
+	//-----------------------------------------------------------
+	
+	/**
+	 * File name
+	 */
 	private String fileName;
 	
+	/**
+	 * Sequences ArrayList
+	 */
 	private ArrayList<String> sequences;
 	
+	/**
+	 * Aligned sequences ArrayList
+	 */
 	private ArrayList<String> newSequences;
 	
+	/**
+	 * Instance of class that reads Fasta file
+	 */
 	private ReadFastaFile fastaFile;
 	
+	//-----------------------------------------------------------
+	// Constructors
+	//-----------------------------------------------------------
+	
+	/**
+	 * RunInputFileSequences constructor
+	 * @param pFileName File name
+	 */
 	public RunInputFileSequences(String pFileName)
 	{
 		fileName = pFileName;
@@ -26,11 +54,19 @@ public class RunInputFileSequences
 		}
 	}
 	
+	//-----------------------------------------------------------
+	// Methods
+	//-----------------------------------------------------------
+	
+	/**
+	 * Align sequences
+	 */
 	public void alignSequences()
 	{
 		SequenceAlignment alignSequences = null;
 		int j = 1;
 		
+		System.out.println();
 		System.out.println("2. Sequences alignment");
 		System.out.println();
 		
@@ -75,11 +111,20 @@ public class RunInputFileSequences
 		}
 	}
 	
+	/**
+	 * Returns newSequences ArrayList size
+	 * @return newSequences.size()
+	 */
 	public int getNewSequencesSize()
 	{
 		return newSequences.size();
 	}
 	
+	/**
+	 * Returns aligned sequence in pI position
+	 * @param pI Index of sequence
+	 * @return newSequences.get(pI)
+	 */
 	public String getNewSequence(int pI)
 	{
 		return newSequences.get(pI);
