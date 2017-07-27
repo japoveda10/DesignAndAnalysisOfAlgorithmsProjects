@@ -25,11 +25,6 @@ public class Main
 		String sequence3 = "CAGTGC";
 		String sequence4 = "GAATTTC";
 		
-		String sequence1Description = fastaFile.getDescription();
-		String sequence2Description = fastaFile.getDescription(1);
-		String sequence3Description = fastaFile.getDescription(2);
-		String sequence4Description = fastaFile.getDescription(3);
-		
 		ArrayList<String> sequences = new ArrayList<String>();
 		sequences.add(sequence1);
 		sequences.add(sequence2);
@@ -49,6 +44,7 @@ public class Main
 			System.out.println("------------------------------------------------");
 			System.out.println("Comparing sequence " + i + " and sequence " + j);
 			System.out.println("------------------------------------------------");
+			
 			if(i == 0 && j == 1)
 			{
 				alignSequences = new SequenceAlignment(sequences.get(i), sequences.get(j));
@@ -64,6 +60,8 @@ public class Main
 			newSequences.add(newSequence1);
 			newSequences.add(newSequence2);
 			
+			String sequence1Description = fastaFile.getDescription(i);
+			String sequence2Description = fastaFile.getDescription(j);
 			
 			//Writes aligned sequences in output file
 			WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence1Description, sequence2, sequence2Description, newSequence1, newSequence2);
