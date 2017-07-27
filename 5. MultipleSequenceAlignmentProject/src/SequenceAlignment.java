@@ -177,7 +177,6 @@ public class SequenceAlignment
 					newSequence1 += "-";
 					i = i-1;
 				}
-				
 			}
 			else
 			{
