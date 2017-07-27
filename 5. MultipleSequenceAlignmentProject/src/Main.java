@@ -57,8 +57,16 @@ public class Main
 			System.out.println();
 			String newSequence1 = alignSequences.getNewSequence1();
 			String newSequence2 = alignSequences.getNewSequence2();
-			newSequences.add(newSequence1);
-			newSequences.add(newSequence2);
+			
+			if(i > 0)
+			{
+				newSequences.add(newSequence2);
+			}
+			else
+			{
+				newSequences.add(newSequence1);
+				newSequences.add(newSequence2);
+			}
 			
 			String sequence1Description = fastaFile.getDescription(i);
 			String sequence2Description = fastaFile.getDescription(j);
@@ -66,6 +74,11 @@ public class Main
 			//Writes aligned sequences in output file
 			WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence1Description, sequence2, sequence2Description, newSequence1, newSequence2);
 			j++;
+		}
+		
+		for(int i = 0; i<newSequences.size(); i++)
+		{
+			System.out.println(newSequences.get(i));
 		}
 	}
 }

@@ -175,6 +175,7 @@ public class SequenceAlignment
 				else
 				{
 					newSequence1 += "-";
+					i = i-1;
 				}
 				
 			}
