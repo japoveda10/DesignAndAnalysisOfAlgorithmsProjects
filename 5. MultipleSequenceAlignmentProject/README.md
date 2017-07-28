@@ -11,3 +11,7 @@ The main class is called `Main`, it receives 2 parameters:
 Example of program arguments:
 
 data/exampleFLOGenes.fa 0
+
+## How does it work?
+
+A matrix is going to be used to align the sequences. Each column of the matrixrepresents a character from the sequence 1 and each row represents a character from the sequence 2. First we fill the matrix with scores. After filling the matrix, the algorithm makes a traceback in order to build the aligned sequences.
