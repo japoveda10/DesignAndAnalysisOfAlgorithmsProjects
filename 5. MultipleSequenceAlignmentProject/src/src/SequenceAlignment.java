@@ -1,3 +1,4 @@
+package src;
 
 /**
  * Class that aligns 2 sequences

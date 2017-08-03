@@ -1,34 +1,20 @@
+package src;
 import java.util.ArrayList;
 
 /**
- * Runs program for default sequences alignment
+ * Runs programs for input file sequences alignment
  * @author David Cortes and Julio Poveda
  */
-public class RunDefaultSequences
+public class RunInputFileSequences
 {
 	//-----------------------------------------------------------
 	// Attributes
 	//-----------------------------------------------------------
 	
 	/**
-	 * Sequence 1
+	 * File name
 	 */
-	private String sequence1 = "CCATTGACAA";
-	
-	/**
-	 * Sequence 2
-	 */
-	private String sequence2 = "ACTGGAAT";
-	
-	/**
-	 * Sequence 3
-	 */
-	private String sequence3 = "CAGTGC";
-	
-	/**
-	 * Sequence 4
-	 */
-	private String sequence4 = "GAATTTC";
+	private String fileName;
 	
 	/**
 	 * Sequences ArrayList
@@ -41,29 +27,44 @@ public class RunDefaultSequences
 	private ArrayList<String> newSequences;
 	
 	/**
-	 * Instance of class that aligns sequences
+	 * Instance of class that reads Fasta file
 	 */
-	private SequenceAlignment alignSequences;
+	private ReadFastaFile fastaFile;
 	
 	//-----------------------------------------------------------
 	// Constructors
 	//-----------------------------------------------------------
 	
 	/**
-	 * RunDefaultSequences constructor
+	 * RunInputFileSequences constructor
+	 * @param pFileName File name
 	 */
-	public RunDefaultSequences()
+	public RunInputFileSequences(String pFileName)
 	{
+		fileName = pFileName;
 		sequences = new ArrayList<String>();
-		sequences.add(sequence1);
-		sequences.add(sequence2);
-		sequences.add(sequence3);
-		sequences.add(sequence4);
-		
 		newSequences = new ArrayList<String>();
 		
-		alignSequences = null;
+		//Reads input file
+		fastaFile = new ReadFastaFile(fileName);
 		
+		for(int i = 0; i<fastaFile.size(); i++)
+		{
+			String sequence = fastaFile.getSequence(i);
+			sequences.add(sequence);
+		}
+	}
+	
+	//-----------------------------------------------------------
+	// Methods
+	//-----------------------------------------------------------
+	
+	/**
+	 * Align sequences
+	 */
+	public void alignSequences()
+	{
+		SequenceAlignment alignSequences = null;
 		int j = 1;
 		
 		System.out.println();
@@ -76,9 +77,11 @@ public class RunDefaultSequences
 			System.out.println("Comparing sequence " + i + " and sequence " + j);
 			System.out.println("------------------------------------------------");
 			
+			String sequence1 = fastaFile.getSequence(i);
+			String sequence2 = fastaFile.getSequence(j);
+			
 			if(i == 0 && j == 1)
 			{
-				//Enters in first iteration
 				alignSequences = new SequenceAlignment(sequences.get(i), sequences.get(j));
 			}
 			else
@@ -90,29 +93,24 @@ public class RunDefaultSequences
 			String newSequence1 = alignSequences.getNewSequence1();
 			String newSequence2 = alignSequences.getNewSequence2();
 			
-			if(i == 0)
+			if(i > 0)
 			{
-				//Enters in first iteration
-				newSequences.add(newSequence1);
 				newSequences.add(newSequence2);
 			}
 			else
 			{
+				newSequences.add(newSequence1);
 				newSequences.add(newSequence2);
 			}
 			
-			String sequence1Description = ">Sequence " + i + " example description";
-			String sequence2Description = ">Sequence " + j + " example description";
+			String sequence1Description = fastaFile.getDescription(i);
+			String sequence2Description = fastaFile.getDescription(j);
 			
 			//Writes aligned sequences in output file
 			WriteOutputFile outputFile = new WriteOutputFile(sequence1, sequence1Description, sequence2, sequence2Description, newSequence1, newSequence2);
 			j++;
 		}
 	}
-	
-	//-----------------------------------------------------------
-	// Methods
-	//-----------------------------------------------------------
 	
 	/**
 	 * Returns newSequences ArrayList size
